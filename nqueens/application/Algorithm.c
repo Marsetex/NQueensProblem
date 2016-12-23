@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include "../common_includes/Algorithm.h"
 
-#define N 12
+#define N 5
 
 /* This function solves the N Queen problem using
 Backtracking. It mainly uses solveNQUtil() to
@@ -50,21 +50,83 @@ Queen problem */
 bool solveNQUtil(int board[N][N], int col)
 {
 	int row = 0;
-	bool queenSet = false;
-	/* base case: If all queens are placed
-	then return true */
+	bool bQueenAlreadySet = false;
+	bool bQueen = false;
+
+	/* base case: If all queens are placed then return true */
 	if (col >= N) 
 	{
-		return true;
+		bQueen = true;
+	} 
+	else
+	{
+		//bQueenAlreadySet = checkThereWasA();
+
+		for (int m = 0; m < N; m++) {
+			if (board[m][col] == 1)
+			{
+				if (col != N - 1)
+				{
+					row = m;
+					bQueenAlreadySet = true;
+				}
+				else if (col == N - 1)
+				{
+					//printf("Last colum");
+					row = m + 1;
+					board[m][col] = 0;
+				}
+			}
+		}
+
+		/* Consider this column and try placing
+		this queen in all rows one by one */
+		for (int i = row; i < N && bQueen == false; i++)
+		{
+			/* Check if queen can be placed on
+			board[i][col] */
+			if (isSafe(board, i, col) || bQueenAlreadySet)
+			{
+				/* Place this queen in board[i][col] */
+				board[i][col] = 1;
+				bQueenAlreadySet = false;
+				//printSolution(board);
+
+				/* recur to place rest of the queens */
+				if (solveNQUtil(board, col + 1)) {
+					bQueen = true;
+				}
+
+				//printf("Backtrack Col %d \n", col);
+
+				if (bQueen == false) 
+				{
+					/* If placing queen in board[i][col]
+					doesn't lead to a solution, then
+					remove queen from board[i][col] */
+					board[i][col] = 0; // BACKTRACK
+				}
+			}
+		}
+
+
+		/* If queen can not be place in any row in
+		this colum col then return false */
+		//return false;
 	}
 
-	for (int m = 0; m < N; m++) {
+	return bQueen;
+}
+
+bool checkThereWasA() 
+{
+	/*for (int m = 0; m < N; m++) {
 		if (board[m][col] == 1)
 		{
 			if (col != N - 1)
 			{
 				row = m;
-				queenSet = true;
+				bQueenAlreadySet = true;
 			}
 			else if (col == N - 1)
 			{
@@ -73,38 +135,7 @@ bool solveNQUtil(int board[N][N], int col)
 				board[m][col] = 0;
 			}
 		}
-	}
-
-	/* Consider this column and try placing
-	this queen in all rows one by one */
-	for (int i = row; i < N; i++)
-	{
-		/* Check if queen can be placed on
-		board[i][col] */
-		if (isSafe(board, i, col) || queenSet)
-		{
-			/* Place this queen in board[i][col] */
-			board[i][col] = 1;
-			queenSet = false;
-			//printSolution(board);
-
-			/* recur to place rest of the queens */
-			if (solveNQUtil(board, col + 1)) {
-				return true;
-			}
-
-			//printf("Backtrack Col %d \n", col);
-
-			/* If placing queen in board[i][col]
-			doesn't lead to a solution, then
-			remove queen from board[i][col] */
-			board[i][col] = 0; // BACKTRACK
-		}
-	}
-
-	/* If queen can not be place in any row in
-	this colum col then return false */
-	return false;
+	}*/
 }
 
 /* A utility function to check if a queen can
