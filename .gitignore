@@ -2,8 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/NQueensProblem/Debug
-/NQueensProblem/NQueensApplication/Debug
-/NQueensProblem/NQueensDLL/Debug
-/NQueensProblem/.vs/NQueensProblem/v14
+/nqueens/Debug
+/nqueens/application/Debug
+/nqueens/dll/Debug
+/nqueens/.vs/nqueens/v14
 *.opendb
+
