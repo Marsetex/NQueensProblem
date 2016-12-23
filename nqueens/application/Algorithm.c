@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include "../common_includes/Algorithm.h"
 
-#define N 4
+#define N 12
 
 /* This function solves the N Queen problem using
 Backtracking. It mainly uses solveNQUtil() to
@@ -39,7 +38,7 @@ bool solveNQ()
 		}
 		else {
 			solutionCounter++;
-			printSolution(board);
+			//printSolution(board);
 			printf("Solution %d found \n   ----- \n", solutionCounter);
 		}
 	}
@@ -195,7 +194,7 @@ bool checkLeftLowerDiagonal(const int board[N][N], const int row, const int col)
 	return bLeftLowerDiagonalSafe;
 }
 
-/* A utility function to print solution */
+/* A utility function to print solution 
 void printSolution(int board[N][N])
 {
 	for (int i = 0; i < N; i++)
@@ -206,4 +205,4 @@ void printSolution(int board[N][N])
 	}
 
 	printf("---------- \n");
-}
+}*/

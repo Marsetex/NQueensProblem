@@ -4,7 +4,11 @@
  * @author Marcel Gruessinger
  * @date 17.12.2016
  */
-#include <stdbool.h>
+
+#define true 1
+#define false 0
+
+typedef int bool;
 
 bool solveNQ();
 bool isSafe(int board[4][4], int row, int col);
