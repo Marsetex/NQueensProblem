@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include "../common_includes/Algorithm.h"
 
-#define N 5
+#define N 4
 
 /* This function solves the N Queen problem using
 Backtracking. It mainly uses solveNQUtil() to
@@ -16,6 +16,7 @@ bool solveNQ()
 {
 	int board[N][N];
 
+	// init board
 	for (int m = 0; m < N; m++) {
 		for (int l = 0; l < N; l++) {
 			board[m][l] = 0;
@@ -60,8 +61,7 @@ bool solveNQUtil(int board[N][N], int col)
 	} 
 	else
 	{
-		//bQueenAlreadySet = checkThereWasA();
-
+		// Check if there is a queen set it in this column
 		for (int m = 0; m < N; m++) {
 			if (board[m][col] == 1)
 			{
@@ -116,26 +116,6 @@ bool solveNQUtil(int board[N][N], int col)
 	}
 
 	return bQueen;
-}
-
-bool checkThereWasA() 
-{
-	/*for (int m = 0; m < N; m++) {
-		if (board[m][col] == 1)
-		{
-			if (col != N - 1)
-			{
-				row = m;
-				bQueenAlreadySet = true;
-			}
-			else if (col == N - 1)
-			{
-				//printf("Last colum");
-				row = m + 1;
-				board[m][col] = 0;
-			}
-		}
-	}*/
 }
 
 /* A utility function to check if a queen can
