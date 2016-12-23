@@ -2,46 +2,46 @@
 #include <stdbool.h>
 #include "../common_includes/Algorithm.h"
 
-#define N 4
+#define N 12
 
-/* A utility function to print solution */
-void printSolution(int board[N][N])
+/* This function solves the N Queen problem using
+Backtracking. It mainly uses solveNQUtil() to
+solve the problem. It returns false if queens
+cannot be placed, otherwise return true and
+prints placement of queens in the form of 1s.
+Please note that there may be more than one
+solutions, this function prints one of the
+feasible solutions.*/
+bool solveNQ()
 {
-	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < N; j++)
-			printf(" %d ", board[i][j]);
-		printf("\n");
+	int board[N][N];
+
+	for (int m = 0; m < N; m++) {
+		for (int l = 0; l < N; l++) {
+			board[m][l] = 0;
+		}
 	}
 
-	printf("---------- \n");
-}
+	int solutionCounter = 0;
+	int row = 0;
+	bool active = true;
 
-/* A utility function to check if a queen can
-be placed on board[row][col]. Note that this
-function is called when "col" queens are
-already placed in columns from 0 to col -1.
-So we need to check only left side for
-attacking queens */
-bool isSafe(int board[N][N], int row, int col)
-{
-	int i, j;
+	while (active) {
 
-	/* Check this row on left side */
-	for (i = 0; i < col; i++)
-		if (board[row][i])
-			return false;
-
-	/* Check upper diagonal on left side */
-	for (i = row, j = col; i >= 0 && j >= 0; i--, j--)
-		if (board[i][j])
-			return false;
-
-	/* Check lower diagonal on left side */
-	for (i = row, j = col; j >= 0 && i < N; i++, j--)
-		if (board[i][j])
-			return false;
-
+		if (solveNQUtil(board, 0) == false)
+		{
+			if (solutionCounter == 0)
+			{
+				printf("Solution does not exist");
+			}
+			active = false;
+		}
+		else {
+			solutionCounter++;
+			printSolution(board);
+			printf("Solution %d found \n   ----- \n", solutionCounter);
+		}
+	}
 	return true;
 }
 
@@ -53,8 +53,10 @@ bool solveNQUtil(int board[N][N], int col)
 	bool queenSet = false;
 	/* base case: If all queens are placed
 	then return true */
-	if (col >= N)
+	if (col >= N) 
+	{
 		return true;
+	}
 
 	for (int m = 0; m < N; m++) {
 		if (board[m][col] == 1)
@@ -64,10 +66,10 @@ bool solveNQUtil(int board[N][N], int col)
 				row = m;
 				queenSet = true;
 			}
-			else if (col == N-1)
+			else if (col == N - 1)
 			{
 				//printf("Last colum");
-				row = m+1;
+				row = m + 1;
 				board[m][col] = 0;
 			}
 		}
@@ -105,43 +107,92 @@ bool solveNQUtil(int board[N][N], int col)
 	return false;
 }
 
-/* This function solves the N Queen problem using
-Backtracking. It mainly uses solveNQUtil() to
-solve the problem. It returns false if queens
-cannot be placed, otherwise return true and
-prints placement of queens in the form of 1s.
-Please note that there may be more than one
-solutions, this function prints one of the
-feasible solutions.*/
-bool solveNQ()
+/* A utility function to check if a queen can
+be placed on board[row][col]. Note that this
+function is called when "col" queens are
+already placed in columns from 0 to col -1.
+So we need to check only left side for
+attacking queens */
+bool isSafe(int board[N][N], int row, int col)
 {
-	int board[N][N];
+	bool bSave = true;
 
-	for (int m = 0; m < N; m++) {
-		for (int l = 0; l < N; l++) {
-			board[m][l] = 0;
-		}
+	bSave = checkLeftSideOfRow(board, row, col);
+
+	if (bSave == true) 
+	{
+		bSave = checkLeftUpperDiagonal(board, row, col);
 	}
 
-	int solutionCounter = 0;
-	int row = 0;
-	bool active = true;
+	if (bSave == true) 
+	{
+		bSave = checkLeftLowerDiagonal(board, row, col);
+	}
 
-	while (active) {
+	return bSave;
+}
 
-		if (solveNQUtil(board, 0) == false)
+	/* Check this row on left side */
+bool checkLeftSideOfRow(const int board[N][N], const int row, const int col)
+{
+	bool bLeftSideSafe = true;
+
+	for (int i = 0; i < col; i++)
+	{
+		if (board[row][i])
 		{
-			if (solutionCounter == 0) 
-			{
-				printf("Solution does not exist");
-			}
-			active = false;
-		}
-		else {
-			solutionCounter++;
-			printSolution(board);
-			printf("Solution %d found \n   ----- \n", solutionCounter);
+			bLeftSideSafe = false;
 		}
 	}
-	return true;
+
+	return bLeftSideSafe;
+}
+
+/* Check upper diagonal on left side */
+bool checkLeftUpperDiagonal(const int board[N][N], const int row, const int col)
+{
+	int i;
+	int j;
+	bool bLeftUpperDiagonalSafe = true;
+
+	for (i = row, j = col; i >= 0 && j >= 0; i--, j--)
+	{
+		if (board[i][j])
+		{
+			bLeftUpperDiagonalSafe = false;
+		}
+	}
+
+	return bLeftUpperDiagonalSafe;
+}
+
+/* Check lower diagonal on left side */
+bool checkLeftLowerDiagonal(const int board[N][N], const int row, const int col)
+{
+	int i;
+	int j;
+	bool bLeftLowerDiagonalSafe = true;
+
+	for (i = row, j = col; j >= 0 && i < N; i++, j--) 
+	{
+		if (board[i][j]) 
+		{
+			bLeftLowerDiagonalSafe = false;
+		}
+	}
+
+	return bLeftLowerDiagonalSafe;
+}
+
+/* A utility function to print solution */
+void printSolution(int board[N][N])
+{
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+			printf(" %d ", board[i][j]);
+		printf("\n");
+	}
+
+	printf("---------- \n");
 }
