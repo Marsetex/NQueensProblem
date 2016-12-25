@@ -145,12 +145,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.c" />
+    <ClCompile Include="ConsoleWindow.c" />
+    <ClCompile Include="Initializer.c" />
     <ClCompile Include="Main.c" />
-    <ClCompile Include="Menu.c" />
+    <ClCompile Include="UserInput.c" />
+    <ClCompile Include="UserInterface.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common_includes\Algorithm.h" />
-    <ClInclude Include="..\common_includes\Menu.h" />
+    <ClInclude Include="..\common_includes\ConsoleWindow.h" />
+    <ClInclude Include="..\common_includes\Initializer.h" />
+    <ClInclude Include="..\common_includes\NQueensData.h" />
+    <ClInclude Include="..\common_includes\UserInput.h" />
+    <ClInclude Include="..\common_includes\UserInterface.h" />
     <ClInclude Include="..\common_includes\Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

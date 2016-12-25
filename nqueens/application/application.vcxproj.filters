@@ -21,7 +21,16 @@
     <ClCompile Include="Algorithm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.c">
+    <ClCompile Include="Initializer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleWindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInput.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +41,19 @@
     <ClInclude Include="..\common_includes\Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_includes\Menu.h">
+    <ClInclude Include="..\common_includes\Initializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\NQueensData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\ConsoleWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

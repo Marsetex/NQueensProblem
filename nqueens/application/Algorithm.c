@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "../common_includes/Algorithm.h"
 
-#define N 12
-
 /* This function solves the N Queen problem using
 Backtracking. It mainly uses solveNQUtil() to
 solve the problem. It returns false if queens
@@ -11,24 +9,14 @@ prints placement of queens in the form of 1s.
 Please note that there may be more than one
 solutions, this function prints one of the
 feasible solutions.*/
-bool solveNQ()
+bool solveNQ(int** ppiBoard, int iBoardLength)
 {
-	int board[N][N];
-
-	// init board
-	for (int m = 0; m < N; m++) {
-		for (int l = 0; l < N; l++) {
-			board[m][l] = 0;
-		}
-	}
-
 	int solutionCounter = 0;
 	int row = 0;
 	bool active = true;
 
 	while (active) {
-
-		if (solveNQUtil(board, 0) == false)
+		if (solveNQUtil(ppiBoard, iBoardLength, 0) == false)
 		{
 			if (solutionCounter == 0)
 			{
@@ -38,61 +26,62 @@ bool solveNQ()
 		}
 		else {
 			solutionCounter++;
-			//printSolution(board);
+			printSolution(ppiBoard, iBoardLength);
 			printf("Solution %d found \n   ----- \n", solutionCounter);
 		}
 	}
+
 	return true;
 }
 
 /* A recursive utility function to solve N
 Queen problem */
-bool solveNQUtil(int board[N][N], int col)
+bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 {
 	int row = 0;
 	bool bQueenAlreadySet = false;
 	bool bQueen = false;
 
 	/* base case: If all queens are placed then return true */
-	if (col >= N) 
+	if (iColumn >= iBoardLength)
 	{
 		bQueen = true;
 	} 
 	else
 	{
 		// Check if there is a queen set it in this column
-		for (int m = 0; m < N; m++) {
-			if (board[m][col] == 1)
+		for (int m = 0; m < iBoardLength; m++) {
+			if (ppiBoard[m][iColumn] == 1)
 			{
-				if (col != N - 1)
+				if (iColumn != iBoardLength - 1)
 				{
 					row = m;
 					bQueenAlreadySet = true;
 				}
-				else if (col == N - 1)
+				else if (iColumn == iBoardLength - 1)
 				{
 					//printf("Last colum");
 					row = m + 1;
-					board[m][col] = 0;
+					ppiBoard[m][iColumn] = 0;
 				}
 			}
 		}
 
 		/* Consider this column and try placing
 		this queen in all rows one by one */
-		for (int i = row; i < N && bQueen == false; i++)
+		for (int i = row; i < iBoardLength && bQueen == false; i++)
 		{
 			/* Check if queen can be placed on
 			board[i][col] */
-			if (isSafe(board, i, col) || bQueenAlreadySet)
+			if (isSafe(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadySet)
 			{
 				/* Place this queen in board[i][col] */
-				board[i][col] = 1;
+				ppiBoard[i][iColumn] = 1;
 				bQueenAlreadySet = false;
 				//printSolution(board);
 
 				/* recur to place rest of the queens */
-				if (solveNQUtil(board, col + 1)) {
+				if (solveNQUtil(ppiBoard, iBoardLength, iColumn + 1)) {
 					bQueen = true;
 				}
 
@@ -103,11 +92,10 @@ bool solveNQUtil(int board[N][N], int col)
 					/* If placing queen in board[i][col]
 					doesn't lead to a solution, then
 					remove queen from board[i][col] */
-					board[i][col] = 0; // BACKTRACK
+					ppiBoard[i][iColumn] = 0; // BACKTRACK
 				}
 			}
 		}
-
 
 		/* If queen can not be place in any row in
 		this colum col then return false */
@@ -123,33 +111,33 @@ function is called when "col" queens are
 already placed in columns from 0 to col -1.
 So we need to check only left side for
 attacking queens */
-bool isSafe(int board[N][N], int row, int col)
+bool isSafe(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
 	bool bSave = true;
 
-	bSave = checkLeftSideOfRow(board, row, col);
+	bSave = checkLeftSideOfRow(ppiBoard, iRow, iColumn);
 
 	if (bSave == true) 
 	{
-		bSave = checkLeftUpperDiagonal(board, row, col);
+		bSave = checkLeftUpperDiagonal(ppiBoard, iRow, iColumn);
 	}
 
 	if (bSave == true) 
 	{
-		bSave = checkLeftLowerDiagonal(board, row, col);
+		bSave = checkLeftLowerDiagonal(ppiBoard, iRow, iColumn, iBoardLength);
 	}
 
 	return bSave;
 }
 
 	/* Check this row on left side */
-bool checkLeftSideOfRow(const int board[N][N], const int row, const int col)
+bool checkLeftSideOfRow(const int** ppiBoard, const int iRow, const int iColumn)
 {
 	bool bLeftSideSafe = true;
 
-	for (int i = 0; i < col; i++)
+	for (int i = 0; i < iColumn; i++)
 	{
-		if (board[row][i])
+		if (ppiBoard[iRow][i])
 		{
 			bLeftSideSafe = false;
 		}
@@ -159,15 +147,15 @@ bool checkLeftSideOfRow(const int board[N][N], const int row, const int col)
 }
 
 /* Check upper diagonal on left side */
-bool checkLeftUpperDiagonal(const int board[N][N], const int row, const int col)
+bool checkLeftUpperDiagonal(const int** ppiBoard, const int iRow, const int iColumn)
 {
 	int i;
 	int j;
 	bool bLeftUpperDiagonalSafe = true;
 
-	for (i = row, j = col; i >= 0 && j >= 0; i--, j--)
+	for (i = iRow, j = iColumn; i >= 0 && j >= 0; i--, j--)
 	{
-		if (board[i][j])
+		if (ppiBoard[i][j])
 		{
 			bLeftUpperDiagonalSafe = false;
 		}
@@ -177,15 +165,15 @@ bool checkLeftUpperDiagonal(const int board[N][N], const int row, const int col)
 }
 
 /* Check lower diagonal on left side */
-bool checkLeftLowerDiagonal(const int board[N][N], const int row, const int col)
+bool checkLeftLowerDiagonal(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
 	int i;
 	int j;
 	bool bLeftLowerDiagonalSafe = true;
 
-	for (i = row, j = col; j >= 0 && i < N; i++, j--) 
+	for (i = iRow, j = iColumn; j >= 0 && i < iBoardLength; i++, j--)
 	{
-		if (board[i][j]) 
+		if (ppiBoard[i][j])
 		{
 			bLeftLowerDiagonalSafe = false;
 		}
@@ -194,15 +182,15 @@ bool checkLeftLowerDiagonal(const int board[N][N], const int row, const int col)
 	return bLeftLowerDiagonalSafe;
 }
 
-/* A utility function to print solution 
-void printSolution(int board[N][N])
+//A utility function to print solution 
+void printSolution(const int** ppiBoard, const int iBoardLength)
 {
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < iBoardLength; i++)
 	{
-		for (int j = 0; j < N; j++)
-			printf(" %d ", board[i][j]);
+		for (int j = 0; j < iBoardLength; j++)
+			printf(" %d ", ppiBoard[i][j]);
 		printf("\n");
 	}
 
 	printf("---------- \n");
-}*/
+}

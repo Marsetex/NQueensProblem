@@ -10,11 +10,10 @@
 
 typedef int bool;
 
-bool solveNQ();
-bool isSafe(int board[4][4], int row, int col);
-bool solveNQUtil(int board[4][4], int col);
-bool isSafe(int board[4][4], int row, int col);
-bool checkLeftSideOfRow(int board[4][4], int row, int col);
-bool checkLeftUpperDiagonal(int board[4][4], int row, int col);
-bool checkLeftLowerDiagonal(int board[4][4], int row, int col);
-void printSolution(int board[4][4]);
+bool solveNQ(int** ppiBoard, int iBoardLength);
+bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn);
+bool isSafe(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength);
+bool checkLeftSideOfRow(const int** ppiBoard, const int iRow, const int iColumn);
+bool checkLeftUpperDiagonal(const int** ppiBoard, const int iRow, const int iColumn);
+bool checkLeftLowerDiagonal(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength);
+void printSolution(const int** ppiBoard, const int iBoardLength);
