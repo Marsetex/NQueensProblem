@@ -9,6 +9,7 @@
 
 #define PADDING_STATUS_BAR 3
 
+void printUserInterface(struct nQueens* psNQueens);
 void printMenu(void);
 void printBoard(int** ppiBoard, int iBoardLength);
-void printStatus(int iBoardLength);
+void printStatus(struct nQueens* psNQueens);

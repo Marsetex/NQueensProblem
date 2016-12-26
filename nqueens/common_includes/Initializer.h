@@ -6,4 +6,3 @@
  */
 
 void initializeProgram(struct nQueens* psNQueens);
-void initChessBoard(int*** pppiBoard, int iBoardLength);

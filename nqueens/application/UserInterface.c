@@ -5,8 +5,18 @@
  * @date
  */
 #include <stdio.h>
+#include <string.h>
+#include "../common_includes/NQueensData.h"
 #include "../common_includes/Utilities.h"
 #include "../common_includes/UserInterface.h"
+
+void printUserInterface(struct nQueens* psNQueens)
+{
+	_clrscr();
+	printMenu();
+	printBoard(psNQueens->ppiChessBoard, psNQueens->iChessBoardLength);
+	printStatus(psNQueens);
+}
 
 void printMenu(void) 
 {
@@ -41,13 +51,29 @@ void printBoard(int** ppiBoard, int iBoardLength)
 	}
 }
 
-void printStatus(int iBoardLength) 
+void printStatus(struct nQueens* psNQueens)
 {
+	int iBoardLength = psNQueens->iChessBoardLength;
+
+	char acBoardLength[6];
+	char acModus[11];
+	char acFileSave[4];
+
+	if (iBoardLength < 10)
+	{
+		sprintf(acBoardLength, "0%dx0%d", iBoardLength, iBoardLength);
+	}
+	else 
+	{
+		sprintf(acBoardLength, "%dx%d", iBoardLength, iBoardLength);
+	}
+	strncpy(acModus, psNQueens->eAlgoModus == 1 ? "CONTINIOUS" : "ONE BY ONE", 11);
+	strncpy(acFileSave, psNQueens->eSaveModus == 1 ? "ON" : "OFF", 4);
 	_gotoxy(0, MENU_HEIGHT + iBoardLength*2 + PADDING_STATUS_BAR);
 
 	printf("==== NQueens status =============================================================\n");
-	printf("|  Amount of solutions: 14200                            Runtime: 14,56568      |\n");
-	printf("|  Board size: 12x12         Modus: One by one           File saving: OFF       |\n");
-	printf("|  File name: C:\\temp\\hi.txt                                                    |\n");
+	printf("|  Amount of solutions: %-5d                           Runtime: %-9f      |\n", psNQueens->iAmountOfSolutions, psNQueens->fRuntime);
+	printf("|  Board size: %s         Modus: %s          File saving: %-3s        |\n", acBoardLength, acModus, acFileSave);
+	printf("|  File name: %-14s                                                    |\n", psNQueens->acFilename);
 	printf("=================================================================================\n");
 }

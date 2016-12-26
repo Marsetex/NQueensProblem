@@ -1,40 +1,12 @@
-#include <stdio.h>
+/**
+ * @file FileName
+ * @brief
+ * @author
+ * @date
+ */
 #include "../common_includes/Algorithm.h"
 
-/* This function solves the N Queen problem using
-Backtracking. It mainly uses solveNQUtil() to
-solve the problem. It returns false if queens
-cannot be placed, otherwise return true and
-prints placement of queens in the form of 1s.
-Please note that there may be more than one
-solutions, this function prints one of the
-feasible solutions.*/
-bool solveNQ(int** ppiBoard, int iBoardLength)
-{
-	int solutionCounter = 0;
-	int row = 0;
-	bool active = true;
-
-	while (active) {
-		if (solveNQUtil(ppiBoard, iBoardLength, 0) == false)
-		{
-			if (solutionCounter == 0)
-			{
-				printf("Solution does not exist");
-			}
-			active = false;
-		}
-		else {
-			solutionCounter++;
-			printSolution(ppiBoard, iBoardLength);
-			printf("Solution %d found \n   ----- \n", solutionCounter);
-		}
-	}
-
-	return true;
-}
-
-/* A recursive utility function to solve N
+ /* A recursive utility function to solve N
 Queen problem */
 bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 {
@@ -60,7 +32,6 @@ bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 				}
 				else if (iColumn == iBoardLength - 1)
 				{
-					//printf("Last colum");
 					row = m + 1;
 					ppiBoard[m][iColumn] = 0;
 				}
@@ -84,8 +55,6 @@ bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 				if (solveNQUtil(ppiBoard, iBoardLength, iColumn + 1)) {
 					bQueen = true;
 				}
-
-				//printf("Backtrack Col %d \n", col);
 
 				if (bQueen == false) 
 				{
@@ -180,17 +149,4 @@ bool checkLeftLowerDiagonal(const int** ppiBoard, const int iRow, const int iCol
 	}
 
 	return bLeftLowerDiagonalSafe;
-}
-
-//A utility function to print solution 
-void printSolution(const int** ppiBoard, const int iBoardLength)
-{
-	for (int i = 0; i < iBoardLength; i++)
-	{
-		for (int j = 0; j < iBoardLength; j++)
-			printf(" %d ", ppiBoard[i][j]);
-		printf("\n");
-	}
-
-	printf("---------- \n");
 }

@@ -86,14 +86,14 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\common_includes\Utilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\common_includes\Utilities.lib;..\Debug\dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,17 +145,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.c" />
+    <ClCompile Include="AlgorithmHandler.c" />
     <ClCompile Include="ConsoleWindow.c" />
+    <ClCompile Include="DataManipulator.c" />
     <ClCompile Include="Initializer.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="StringBuilder.c" />
     <ClCompile Include="UserInput.c" />
     <ClCompile Include="UserInterface.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common_includes\Algorithm.h" />
+    <ClInclude Include="..\common_includes\AlgorithmHandler.h" />
     <ClInclude Include="..\common_includes\ConsoleWindow.h" />
+    <ClInclude Include="..\common_includes\DataManipulator.h" />
+    <ClInclude Include="..\common_includes\FileWriter.h" />
     <ClInclude Include="..\common_includes\Initializer.h" />
     <ClInclude Include="..\common_includes\NQueensData.h" />
+    <ClInclude Include="..\common_includes\StringBuilder.h" />
     <ClInclude Include="..\common_includes\UserInput.h" />
     <ClInclude Include="..\common_includes\UserInterface.h" />
     <ClInclude Include="..\common_includes\Utilities.h" />
