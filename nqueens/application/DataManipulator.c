@@ -77,5 +77,5 @@ void changeAlgorithmMode(algorithmModus* eAlgoMode)
 }
 
 void changeFileName(char fileName[], char newFileName[]) {
-	strncpy(fileName, newFileName, 255);
+	strncpy(fileName, newFileName, 76);
 }

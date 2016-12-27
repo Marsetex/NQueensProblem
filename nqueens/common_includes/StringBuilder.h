@@ -5,5 +5,4 @@
  * @date 17.12.2016
  */
 
-void addSolution(char dest[], char source[]);
 void createCharArray(char dest[], int** source, int iBoardLength, int iSolutionNumber);

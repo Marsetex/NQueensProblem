@@ -4,7 +4,6 @@
  * @author
  * @date
  */
-#include <time.h>
 #include <conio.h>
 #include "../common_includes/NQueensData.h"
 #include "../common_includes/AlgorithmHandler.h"
@@ -12,8 +11,6 @@
 #include "../common_includes/StringBuilder.h"
 #include "../common_includes/UserInterface.h"
 #include "../common_includes/FileWriter.h"
-
-#define START_COLUMN 0
 
  /* This function solves the N Queen problem using
  Backtracking. It mainly uses solveNQUtil() to
@@ -25,52 +22,66 @@
  feasible solutions.*/
 void runAlgorithm(nQueensData* data)
 {
-	bool active = true;
+	bool bAlgorithmRunning = true;
+	bool bInterruptActive = true;
 	data->iAmountOfSolutions = 0;
-	char ha[500] = { "" };
-	//char acSolutionString[500000] = { "" };
-
-	// ticks since start of program
-	clock_t lTicksStart = clock();
-
-	while (active) 
+	data->fRuntime = 0.0f;
+	
+	while (bAlgorithmRunning)
 	{
-		if (solveNQUtil(data->ppiChessBoard, data->iChessBoardLength, 0) == false)
+		// ticks since start of program
+		clock_t lTicksStart = clock();
+
+		bool solutionFound = solveNQUtil(data->ppiChessBoard, data->iChessBoardLength, 0);
+		
+		// passed ticks
+		clock_t lTicksEnd = clock();
+
+		calculateRuntime(lTicksStart, lTicksEnd, &data->fRuntime);
+
+		if (solutionFound == false)
 		{
-			active = false;
+			bAlgorithmRunning = false;
 		}
 		else 
 		{
 			data->iAmountOfSolutions++;
 			printStatus(data);
 
-
 			if (data->eSaveModus == ON)
 			{
+				char ha[500] = { "" };
 				createCharArray(ha, data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
 				appendToFile(ha, data->acFilename);
 			}
 
 			if (data->eAlgoModus == MODUS_ONE_BY_ONE)
 			{
-				// any key -> advance; s -> stop
 				printBoard(data->ppiChessBoard, data->iChessBoardLength);
 
-				while (!_kbhit()) {
+				while (bInterruptActive) {
+					int iChar = _getch();
 
+					switch (iChar)
+					{
+						case 's':
+							bAlgorithmRunning = false;
+							bInterruptActive = false;
+							break;
+						default:
+							bInterruptActive = false;
+							break;
+					}
 				}
+
+				bInterruptActive = true;
 			}
-			//printSolution(data->ppiChessBoard, data->iChessBoardLength);
-			//printf("Solution %d found \n   ----- \n", solutionCounter);
 		}
-
-		// passed ticks
-		clock_t lTicksEnd = clock();
-
-		clock_t lTicksS = lTicksEnd - lTicksStart;
-		data->fRuntime = (float)lTicksS / CLOCKS_PER_SEC;
-		//printf("%f seconds \n", fSeconds);
-
-		
 	}
+}
+
+void calculateRuntime(clock_t lTicksStart, clock_t lTicksEnd, float* fRuntime)
+{
+	clock_t lTicksResult = lTicksEnd - lTicksStart;
+	*fRuntime = *fRuntime + ((float)lTicksResult / CLOCKS_PER_SEC);
 }

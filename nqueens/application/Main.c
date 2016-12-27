@@ -1,8 +1,8 @@
 /**
  * @file Main.c
- * @brief
- * @author
- * @date
+ * @brief starting point of the application
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <stdlib.h>
 #include "../common_includes/NQueensData.h"
@@ -10,7 +10,7 @@
 #include "../common_includes/UserInput.h"
 
 /**
- * @fn FunctionName
+ * @fn int main(void)
  * @brief
  * @param
  * @return

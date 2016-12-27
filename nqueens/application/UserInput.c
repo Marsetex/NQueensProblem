@@ -11,6 +11,7 @@
 #include "../common_includes/DataManipulator.h"
 #include "../common_includes/UserInterface.h"
 #include "../common_includes/Utilities.h"
+#include "../common_includes/ConsoleWindow.h"
 
 void userInput(struct nQueens* psNQueens) 
 {
@@ -20,7 +21,7 @@ void userInput(struct nQueens* psNQueens)
 	int* piBoardLength = &psNQueens->iChessBoardLength;
 	int* s =  &psNQueens->eSaveModus;
 	int* a = &psNQueens->eAlgoModus;
-	char ss[255] = { "" };
+	char ss[255];
 
 	while (iA == 1) 
 	{
@@ -47,18 +48,19 @@ void userInput(struct nQueens* psNQueens)
 					changeFileSaveMode(s);
 					printStatus(psNQueens);
 					break;
-				case 'o':
-				case 'c':
+				case 'm':
 					changeAlgorithmMode(a);
 					printStatus(psNQueens);
 					break;
 				case 'n':
+					setCursorPorperties(1);
 					changeFileName(psNQueens->acFilename, "");
 					printStatus(psNQueens);
-					_gotoxy(14, 19);
-					gets_s(ss, 10);
+					_gotoxy(3, 23);
+					gets_s(ss, 76);
 					changeFileName(psNQueens->acFilename, ss);
 					printStatus(psNQueens);
+					setCursorPorperties(0);
 					break;
 				case 'r':
 					runAlgorithm(psNQueens);

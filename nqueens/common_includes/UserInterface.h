@@ -7,7 +7,7 @@
 
 #define MENU_HEIGHT 5
 
-#define PADDING_STATUS_BAR 3
+#define PADDING_STATUS_BAR 5
 
 void printUserInterface(struct nQueens* psNQueens);
 void printMenu(void);

@@ -21,7 +21,7 @@ __declspec(dllexport) void appendToFile(char acS[], char acFile[])
 	FILE* psFile;
 
 	// Open file for writing
-	psFile = fopen("..\\resources\\zahlen2.txt", "w");
+	psFile = fopen(acFile, "a");
 
 	if (psFile != 0)
 	{

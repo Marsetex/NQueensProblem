@@ -24,8 +24,11 @@
  */
 void initializeProgram(struct nQueens* psNQueens)
 {
-	// Init data
+	// Init Console window
 	setConsoleWindowProperties();
+	setCursorPorperties(0);
+
+	// Init data
 	psNQueens->iChessBoardLength = SMALLEST_BOARD;
 	psNQueens->iAmountOfSolutions = AMOUNT_OF_SOLUTIONS;
 	strncpy(psNQueens->acFilename, "solutions", 255);

@@ -6,3 +6,4 @@
  */
 
 void setConsoleWindowProperties(void);
+void setCursorPorperties(int i);
