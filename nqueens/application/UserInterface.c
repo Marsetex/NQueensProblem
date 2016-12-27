@@ -6,12 +6,17 @@
  */
 #include <stdio.h>
 #include <string.h>
-#include "../common_includes/NQueensData.h"
 #include "../common_includes/UserInterface.h"
 #include "../common_includes/Utilities.h"
 
-#pragma warning(disable:4996)
-
+/**
+ * @fn FunctionName
+ * @brief
+ * @param 
+ * @return
+ * @author
+ * @date
+ */
 void printMenu(void) 
 {
 	_gotoxy(0, 0);
@@ -23,9 +28,19 @@ void printMenu(void)
 	printf("=================================================================================\n");
 }
 
+/**
+ * @fn FunctionName
+ * @brief
+ * @param
+ * @return
+ * @author
+ * @date
+ */
 void printBoard(char acBoard[], int iBoardLength) 
 {
-	short x = 30 - (short)iBoardLength;
+	short sBoardXCoordinats[13] = { 0, 0, 0, 0, 31, 30, 29, 26, 25, 23, 21, 19, 16 };
+	
+	short x = sBoardXCoordinats[iBoardLength];
 	short y = 7;
 	int i = 0;
 	const char s[2] = "\n";
@@ -49,33 +64,23 @@ void printBoard(char acBoard[], int iBoardLength)
 	}
 }
 
-void printStatus(struct nQueens* psNQueens)
+/**
+ * @fn FunctionName
+ * @brief
+ * @param
+ * @return
+ * @author
+ * @date
+ */
+void printStatus(int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[])
 {
-	int iBoardLength = psNQueens->iChessBoardLength;
-
-	char acBoardLength[6];
-	char acModus[11];
-	char acFileSave[4];
-	char acProgramStatus[23] = { "Pending..." };
-
-	// TODO: Converter class
-	if (iBoardLength < 10)
-	{
-		sprintf(acBoardLength, "0%dx0%d", iBoardLength, iBoardLength);
-	}
-	else 
-	{
-		sprintf(acBoardLength, "%dx%d", iBoardLength, iBoardLength);
-	}
-	strncpy(acModus, psNQueens->eAlgoModus == 1 ? "Continious" : "One by One", 11);
-	strncpy(acFileSave, psNQueens->eSaveModus == 1 ? "ON" : "OFF", 4);
-	_gotoxy((short)0, (short)MENU_HEIGHT + (short)iBoardLength*2 + (short)PADDING_STATUS_BAR);
+	_gotoxy((short)0, (short)MENU_HEIGHT + (short)iBoardLength * 2 + (short)PADDING_STATUS_BAR);
 
 	printf("==== Status =====================================================================\n");
-	printf("|  Amount of solutions: %-5d  |  %-22s  |  Runtime: %-8f  |\n", psNQueens->iAmountOfSolutions, acProgramStatus , psNQueens->fRuntime);
+	printf("|  Amount of solutions: %-5d  |  %-22s  |  Runtime: %-8f  |\n", iAmountOfSolutions, acProgramStatus , fRuntime);
 	printf("|-------------------------------------------------------------------------------|\n");
-	printf("|  Mode: %s               Board size: %s          Save to file: %-3s  |\n", acModus, acBoardLength, acFileSave);
+	printf("|  Mode: %s               Board size: %2dx%2d          Save to file: %-3s  |\n", acAlgorithmMode, iBoardLength, iBoardLength, acFileSave);
 	printf("|  Path to file and name (max. length: 75):                                     |\n");
-	printf("|  %-75s  |\n", psNQueens->acFilename);
+	printf("|  %-75s  |\n", acFilename);
 	printf("=================================================================================\n");
 }

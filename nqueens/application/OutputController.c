@@ -1,3 +1,9 @@
+/**
+ * @file FileName
+ * @brief
+ * @author
+ * @date
+ */
 #include "../common_includes/NQueensData.h"
 #include "../common_includes/OutputController.h"
 #include "../common_includes/UserInterface.h"
@@ -12,7 +18,7 @@ void printUserInterface(struct nQueens* psNQueens)
 	_clrscr();
 	printMenu();
 	printBoard(s, psNQueens->iChessBoardLength);
-	printStatus(psNQueens);
+	printStatusBar(psNQueens);
 }
 
 void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions)
@@ -24,5 +30,14 @@ void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSo
 
 void printStatusBar(struct nQueens* psNQueens)
 {
-	printStatus(psNQueens);
+	char acBoardLength[6];
+	char acModus[11];
+	char acFileSave[4];
+	char acProgramStatus[23] = { "Pending..." };
+
+	// TODO: Converter class
+	strncpy(acModus, psNQueens->eAlgoModus == 1 ? "Continious" : "One by One", 11);
+	strncpy(acFileSave, psNQueens->eSaveModus == 1 ? "ON" : "OFF", 4);
+
+	printStatus(psNQueens->iChessBoardLength, acModus, acFileSave, "Pending...", psNQueens->iAmountOfSolutions, psNQueens->fRuntime, psNQueens->acFilename);
 }
