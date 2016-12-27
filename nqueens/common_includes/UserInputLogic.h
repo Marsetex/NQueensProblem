@@ -1,15 +1,20 @@
 /**
- * @file UserInterface.h
- * @brief contains the functions of Kap12_Auf02_DLL.c
- * @author Marcel Gruessinger
- * @date 17.12.2016
- */
+* @file FileName
+* @brief
+* @author
+* @date
+*/
 
-#define MENU_HEIGHT 5
+void plusPressed(struct nQueens* psNQueens);
 
-#define PADDING_STATUS_BAR 5
+void minusPressed(struct nQueens* psNQueens);
 
-void printMenu(void);
-void printBoard(int** ppiBoard, int iBoardLength);
-void printBoard2(char s[], int iBoardLength);
-void printStatus(struct nQueens* psNQueens);
+void fPressed(struct nQueens* psNQueens);
+
+void mPressed(struct nQueens* psNQueens);
+
+void nPressed(struct nQueens* psNQueens);
+
+void rPressed(struct nQueens* psNQueens);
+
+void ePressed(int* iWaitingForInputActive);
