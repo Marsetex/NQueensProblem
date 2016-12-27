@@ -20,15 +20,31 @@ __declspec(dllexport) void appendToFile(char acS[], char acFile[])
 {
 	FILE* psFile;
 
-	// Open file for writing
+	// Open file for appending content
 	psFile = fopen(acFile, "a");
 
 	if (psFile != 0)
 	{
 		// Write to file
 		fputs(acS, psFile);
-		//printf("Writing to file completed. \n");
 
+		fclose(psFile);
+	}
+	else
+	{
+		printf("Cannot open file! \n");
+	}
+}
+
+__declspec(dllexport) void clearContentOfFile(char acFile[]) 
+{
+	FILE* psFile;
+
+	// Open file for writing
+	psFile = fopen(acFile, "w");
+
+	if (psFile != 0)
+	{
 		fclose(psFile);
 	}
 	else

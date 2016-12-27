@@ -4,6 +4,8 @@
 * @author Marcel Gruessinger
 * @date 17.12.2016
 */
+#pragma warning(disable:4996)
+
 #ifdef DLL_EXPORTS
 	#define DLL_TYPE __declspec(dllexport)
 #else
@@ -11,3 +13,4 @@
 #endif
 
 DLL_TYPE void appendToFile(char acS[], char acFile[]);
+DLL_TYPE void clearContentOfFile(char acFile[]);

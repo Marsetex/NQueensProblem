@@ -23,6 +23,7 @@
 void runAlgorithm(nQueensData* data)
 {
 	bool bAlgorithmRunning = true;
+	bool bFirstTryToWrite = true;
 	bool bInterruptActive = true;
 	data->iAmountOfSolutions = 0;
 	data->fRuntime = 0.0f;
@@ -50,6 +51,12 @@ void runAlgorithm(nQueensData* data)
 
 			if (data->eSaveModus == ON)
 			{
+				if (bFirstTryToWrite == true)
+				{
+					bFirstTryToWrite = false;
+					clearContentOfFile(data->acFilename);
+				}
+
 				char ha[1350] = { "" };
 				createCharArray(ha, data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
 				appendToFile(ha, data->acFilename);
