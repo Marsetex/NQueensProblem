@@ -14,4 +14,3 @@ typedef int bool;
 typedef struct nQueens nQueensData;
 
 void runAlgorithm(nQueensData* data);
-void calculateRuntime(clock_t lTicksStart, clock_t lTicksEnd, float* fRuntime);

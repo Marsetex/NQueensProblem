@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "../common_includes/StringBuilder.h"
 
 void createCharArray(char dest[], int** source, int iBoardLength, int iSolutionNumber) 
 {

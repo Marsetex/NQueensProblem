@@ -4,5 +4,6 @@
  * @author Marcel Gruessinger
  * @date 17.12.2016
  */
+#pragma warning(disable:4996)
 
 void createCharArray(char dest[], int** source, int iBoardLength, int iSolutionNumber);

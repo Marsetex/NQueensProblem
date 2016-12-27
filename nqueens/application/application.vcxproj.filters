@@ -48,6 +48,9 @@
     <ClCompile Include="UserInputLogic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RuntimeCalculator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common_includes\Algorithm.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\OutputController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\RuntimeCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

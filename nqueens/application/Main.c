@@ -18,7 +18,7 @@
  * @date
  */
 int main(void) {
-	struct nQueens sNQueens;
+	nQueensData sNQueens;
 
 	initializeProgram(&sNQueens);
 

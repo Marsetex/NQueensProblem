@@ -4,6 +4,7 @@
  * @author
  * @date
  */
+#include <string.h>
 #include <conio.h>
 #include "../common_includes/NQueensData.h"
 #include "../common_includes/AlgorithmHandler.h"
@@ -11,6 +12,7 @@
 #include "../common_includes/StringBuilder.h"
 #include "../common_includes/FileWriter.h"
 #include "../common_includes/OutputController.h"
+#include "../common_includes/RuntimeCalculator.h"
 
  /* This function solves the N Queen problem using
  Backtracking. It mainly uses solveNQUtil() to
@@ -27,7 +29,10 @@ void runAlgorithm(nQueensData* data)
 	bool bInterruptActive = true;
 	data->iAmountOfSolutions = 0;
 	data->fRuntime = 0.0f;
-	
+
+	strncpy(data->acProgramStatus, "Algorithm running...", 23);
+	printStatusBar(data);
+
 	while (bAlgorithmRunning)
 	{
 		// ticks since start of program
@@ -65,6 +70,8 @@ void runAlgorithm(nQueensData* data)
 			if (data->eAlgoModus == MODUS_ONE_BY_ONE)
 			{
 				printChessBoard(data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
+				strncpy(data->acProgramStatus, "Any key to advance...", 23);
+				printStatusBar(data);
 
 				while (bInterruptActive) {
 					int iChar = _getch();
@@ -85,10 +92,7 @@ void runAlgorithm(nQueensData* data)
 			}
 		}
 	}
-}
 
-void calculateRuntime(clock_t lTicksStart, clock_t lTicksEnd, float* fRuntime)
-{
-	clock_t lTicksResult = lTicksEnd - lTicksStart;
-	*fRuntime = *fRuntime + ((float)lTicksResult / CLOCKS_PER_SEC);
+	strncpy(data->acProgramStatus, "Pending...", 23);
+	printStatusBar(data);
 }

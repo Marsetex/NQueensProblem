@@ -42,7 +42,7 @@ void printBoard(char acBoard[], int iBoardLength)
 	
 	short x = sBoardXCoordinats[iBoardLength];
 	short y = 7;
-	int i = 0;
+	short i = 0;
 	const char s[2] = "\n";
 	char *token;
 	

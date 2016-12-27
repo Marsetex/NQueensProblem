@@ -48,5 +48,6 @@ struct nQueens
 	fileSaveActive eSaveModus;			///< SAVE_OFF, SAVE_ON
 	int iAmountOfSolutions;				 ///< actual found solutions
 	char acFilename[255];             ///< path and filename where data shall be stored via DLL
-	float fRuntime;            ///< Variable for measuring the runtime of the algorithm
+	float fRuntime;///< Variable for measuring the runtime of the algorithm
+	char acProgramStatus[23];
 };

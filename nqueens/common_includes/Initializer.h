@@ -4,5 +4,6 @@
  * @author
  * @date
  */
+#pragma warning(disable:4996)
 
-void initializeProgram(struct nQueens* psNQueens);
+void initializeProgram(nQueensData* psNQueens);
