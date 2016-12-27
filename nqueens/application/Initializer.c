@@ -9,8 +9,9 @@
 #include "../common_includes/Initializer.h"
 #include "../common_includes/NQueensData.h"
 #include "../common_includes/ConsoleWindow.h"
-#include "../common_includes/UserInterface.h"
 #include "../common_includes/DataManipulator.h"
+#include "../common_includes/StringBuilder.h"
+#include "../common_includes/OutputController.h"
 
 #pragma warning(disable:4996)
 
@@ -31,7 +32,7 @@ void initializeProgram(struct nQueens* psNQueens)
 	// Init data
 	psNQueens->iChessBoardLength = SMALLEST_BOARD;
 	psNQueens->iAmountOfSolutions = AMOUNT_OF_SOLUTIONS;
-	strncpy(psNQueens->acFilename, "solutions", 255);
+	strncpy(psNQueens->acFilename, "..//resources//solutions.txt", 255);
 	psNQueens->eAlgoModus = MODUS_CONTINUOUS;
 	psNQueens->eSaveModus = FILE_SAVE_OFF;
 	psNQueens->fRuntime = DEFAULT_RUNTIME;

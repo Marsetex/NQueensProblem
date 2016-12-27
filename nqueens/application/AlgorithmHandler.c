@@ -9,8 +9,8 @@
 #include "../common_includes/AlgorithmHandler.h"
 #include "../common_includes/Algorithm.h"
 #include "../common_includes/StringBuilder.h"
-#include "../common_includes/UserInterface.h"
 #include "../common_includes/FileWriter.h"
+#include "../common_includes/OutputController.h"
 
  /* This function solves the N Queen problem using
  Backtracking. It mainly uses solveNQUtil() to
@@ -46,18 +46,18 @@ void runAlgorithm(nQueensData* data)
 		else 
 		{
 			data->iAmountOfSolutions++;
-			printStatus(data);
+			printStatusBar(data);
 
 			if (data->eSaveModus == ON)
 			{
-				char ha[500] = { "" };
+				char ha[1350] = { "" };
 				createCharArray(ha, data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
 				appendToFile(ha, data->acFilename);
 			}
 
 			if (data->eAlgoModus == MODUS_ONE_BY_ONE)
 			{
-				printBoard(data->ppiChessBoard, data->iChessBoardLength);
+				printChessBoard(data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
 
 				while (bInterruptActive) {
 					int iChar = _getch();

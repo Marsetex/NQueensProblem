@@ -18,8 +18,6 @@
 
 #define AMOUNT_OF_SOLUTIONS 0
 
-#define DEFAULT_FILENAME solutions
-
 #define DEFAULT_RUNTIME 0
 
 typedef enum algorithmModus algorithmModus;

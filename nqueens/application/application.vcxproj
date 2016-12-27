@@ -150,8 +150,10 @@
     <ClCompile Include="DataManipulator.c" />
     <ClCompile Include="Initializer.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="OutputController.c" />
     <ClCompile Include="StringBuilder.c" />
     <ClCompile Include="UserInput.c" />
+    <ClCompile Include="UserInputLogic.c" />
     <ClCompile Include="UserInterface.c" />
   </ItemGroup>
   <ItemGroup>
@@ -162,8 +164,10 @@
     <ClInclude Include="..\common_includes\FileWriter.h" />
     <ClInclude Include="..\common_includes\Initializer.h" />
     <ClInclude Include="..\common_includes\NQueensData.h" />
+    <ClInclude Include="..\common_includes\OutputController.h" />
     <ClInclude Include="..\common_includes\StringBuilder.h" />
     <ClInclude Include="..\common_includes\UserInput.h" />
+    <ClInclude Include="..\common_includes\UserInputLogic.h" />
     <ClInclude Include="..\common_includes\UserInterface.h" />
     <ClInclude Include="..\common_includes\Utilities.h" />
   </ItemGroup>

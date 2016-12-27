@@ -7,18 +7,10 @@
 #include <stdio.h>
 #include <string.h>
 #include "../common_includes/NQueensData.h"
-#include "../common_includes/Utilities.h"
 #include "../common_includes/UserInterface.h"
+#include "../common_includes/Utilities.h"
 
 #pragma warning(disable:4996)
-
-void printUserInterface(struct nQueens* psNQueens)
-{
-	_clrscr();
-	printMenu();
-	printBoard(psNQueens->ppiChessBoard, psNQueens->iChessBoardLength);
-	printStatus(psNQueens);
-}
 
 void printMenu(void) 
 {
@@ -31,37 +23,29 @@ void printMenu(void)
 	printf("=================================================================================\n");
 }
 
-void printBoard(int** ppiBoard, int iBoardLength)
+void printBoard(char acBoard[], int iBoardLength) 
 {
-	short x = 30-(short)iBoardLength;
+	short x = 30 - (short)iBoardLength;
 	short y = 7;
-	char s[68] = { "-" };
-	_gotoxy(x, y);
-
-	for (int i = 0; i < iBoardLength; i++) 
-	{
-		strcat(s, "----");
-	}
-	printf("%s", s);
+	int i = 0;
+	const char s[2] = "\n";
+	char *token;
 	
-	for (int i = 0; i < iBoardLength; i++)
-	{
-		_gotoxy(x, y + 1 + (short)i*2);
-		for (int j = 0; j < iBoardLength; j++) {
-			if (ppiBoard[i][j] == 1) 
-			{
-				printf("| Q ", ppiBoard[i][j]);
-			}
-			else {
-				printf("|   ", ppiBoard[i][j]);
-			}
+	/* get the first token */
+	token = strtok(acBoard, s);
 
-			if (j + 1 == iBoardLength) {
-				printf("|");
-			}
+	/* walk through other tokens */
+	while (token != NULL)
+	{
+		_gotoxy(x, y + i);
+
+		if (strstr(token, "-") || strstr(token, "|"))
+		{
+			printf("%s \n", token);
+			i++;
 		}
-		_gotoxy(x, y + 1 + (short)i*2 + 1);
-		printf("%s", s);
+
+		token = strtok(NULL, s);
 	}
 }
 

@@ -54,7 +54,7 @@ void decrementBoardLength(int* piBoardLength)
 	}
 }
 
-void changeFileSaveMode(fileSaveActive* eSaveMode)
+void changeFileSaveMode(int* eSaveMode)
 {
 	if (*eSaveMode == ON)
 	{
@@ -65,7 +65,7 @@ void changeFileSaveMode(fileSaveActive* eSaveMode)
 	}
 }
 
-void changeAlgorithmMode(algorithmModus* eAlgoMode) 
+void changeAlgorithmMode(int* eAlgoMode) 
 {
 	if (*eAlgoMode == MODUS_ONE_BY_ONE)
 	{

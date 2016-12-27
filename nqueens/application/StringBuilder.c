@@ -3,20 +3,42 @@
 
 void createCharArray(char dest[], int** source, int iBoardLength, int iSolutionNumber) 
 {
-	char acBuffer[30];
+	char acBuffer[51];
+	char acTrennlinie[51] = { "-" };
 
-	sprintf(acBuffer, "\nSolution #%d \n \n", iSolutionNumber);
+	for (int i = 0; i < iBoardLength; i++)
+	{
+		strcat(acTrennlinie, "----");
+	}
+
+	sprintf(acBuffer, " \nSolution #%d \n \n", iSolutionNumber);
 	strcat(dest, acBuffer);
 
 	for (int i = 0; i < iBoardLength; i++)
 	{
+		strcat(dest, acTrennlinie);
+		strcat(dest, "\n");
+
 		for (int m = 0; m < iBoardLength; m++) 
 		{
-			sprintf(acBuffer, "%d ", source[i][m]);
-			strcat(dest, acBuffer);
+			if (source[i][m] == 1)
+			{
+				strcat(dest, "| Q ");
+			}
+			else 
+			{
+				strcat(dest, "|   ");
+			}
+
+			if (m + 1 == iBoardLength) 
+			{
+				strcat(dest,"|");
+			}
 		}
 
-		sprintf(acBuffer, "\n");
 		strcat(dest, "\n");
 	}
+
+	strcat(dest, acTrennlinie);
+	strcat(dest, "\n");
 }

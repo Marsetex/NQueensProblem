@@ -42,6 +42,12 @@
     <ClCompile Include="StringBuilder.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OutputController.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputLogic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common_includes\Algorithm.h">
@@ -75,6 +81,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\FileWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInputLogic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\OutputController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

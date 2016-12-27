@@ -9,9 +9,10 @@
 #include "../common_includes/NQueensData.h"
 #include "../common_includes/AlgorithmHandler.h"
 #include "../common_includes/DataManipulator.h"
-#include "../common_includes/UserInterface.h"
 #include "../common_includes/Utilities.h"
 #include "../common_includes/ConsoleWindow.h"
+#include "../common_includes/StringBuilder.h"
+#include "../common_includes/OutputController.h"
 
 void userInput(struct nQueens* psNQueens) 
 {
@@ -19,12 +20,14 @@ void userInput(struct nQueens* psNQueens)
 	int iA = 1;
 	int*** pppi = &psNQueens->ppiChessBoard;
 	int* piBoardLength = &psNQueens->iChessBoardLength;
-	int* s =  &psNQueens->eSaveModus;
+	int* saveMode =  &psNQueens->eSaveModus;
 	int* a = &psNQueens->eAlgoModus;
 	char ss[255];
 
 	while (iA == 1) 
 	{
+		char s[1350] = { "" };
+
 		if(_kbhit()) 
 		{
 			iChar = _getch();
@@ -36,30 +39,32 @@ void userInput(struct nQueens* psNQueens)
 					incrementBoardLength(piBoardLength);
 					freeChessBoardMemory(psNQueens->ppiChessBoard);
 					generateChessBoard(pppi, *piBoardLength);
-					printUserInterface(psNQueens);
+					createCharArray(s, psNQueens->ppiChessBoard, psNQueens->iChessBoardLength, psNQueens->iAmountOfSolutions);
+					printUserInterface(psNQueens, s);
 					break;
 				case '-':
 					decrementBoardLength(piBoardLength);
 					freeChessBoardMemory(psNQueens->ppiChessBoard);
 					generateChessBoard(pppi, *piBoardLength);
-					printUserInterface(psNQueens);
+					createCharArray(s, psNQueens->ppiChessBoard, psNQueens->iChessBoardLength, psNQueens->iAmountOfSolutions);
+					printUserInterface(psNQueens, s); 
 					break;
 				case 'f':
-					changeFileSaveMode(s);
-					printStatus(psNQueens);
+					changeFileSaveMode(saveMode);
+					printStatusBar(psNQueens);
 					break;
 				case 'm':
 					changeAlgorithmMode(a);
-					printStatus(psNQueens);
+					printStatusBar(psNQueens);
 					break;
 				case 'n':
 					setCursorPorperties(1);
 					changeFileName(psNQueens->acFilename, "");
-					printStatus(psNQueens);
+					printStatusBar(psNQueens);
 					_gotoxy(3, 23);
 					gets_s(ss, 76);
 					changeFileName(psNQueens->acFilename, ss);
-					printStatus(psNQueens);
+					printStatusBar(psNQueens);
 					setCursorPorperties(0);
 					break;
 				case 'r':
