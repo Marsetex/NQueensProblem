@@ -58,7 +58,7 @@ void nPressed(struct nQueens* psNQueens)
 	setCursorPorperties(1);
 	changeFileName(psNQueens->acFilename, "");
 	printStatusBar(psNQueens);
-	_gotoxy(3, 23);
+	_gotoxy((short)3, (short)23 + ((short)psNQueens->iChessBoardLength - SMALLEST_BOARD) * 2);
 	gets_s(ss, 76);
 	changeFileName(psNQueens->acFilename, ss);
 	printStatusBar(psNQueens);
