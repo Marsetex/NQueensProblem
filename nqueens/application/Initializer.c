@@ -1,8 +1,8 @@
 /**
  * @file Initializer.c
- * @brief
- * @author
- * @date
+ * @brief initializes the application
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <string.h>
 
@@ -14,29 +14,49 @@
 #include "../common_includes/OutputController.h"
 
 /**
- * @fn FunctionName
- * @brief
- * @param
- * @return
- * @author
- * @date
+ * @fn void initConsoleWindow(void)
+ * @brief initializes the console window
+ * @param void
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
-void initializeProgram(nQueensData* psNQueens)
+void initConsoleWindow(void)
 {
-	// Init Console window
-	setConsoleWindowProperties();
-	setCursorPorperties(0);
+	setTitleOfConsoleWindow("NQueens-Problem");
+	setSizeOfConsoleWindow(25);
+	setCursorVisibility(0);
+}
 
-	// Init data
-	psNQueens->iChessBoardLength = SMALLEST_BOARD;
-	psNQueens->iAmountOfSolutions = AMOUNT_OF_SOLUTIONS;
-	strncpy(psNQueens->acFilename, "..//resources//solutions.txt", 255);
-	psNQueens->eAlgoModus = MODUS_CONTINUOUS;
-	psNQueens->eSaveModus = FILE_SAVE_OFF;
-	psNQueens->fRuntime = DEFAULT_RUNTIME;
-	strncpy(psNQueens->acProgramStatus, "Pending...", 23);
-	generateChessBoard(&psNQueens->ppiChessBoard, SMALLEST_BOARD);
+/**
+ * @fn void initApplicationData(nQueensData* psNQueens)
+ * @brief initializes the application data
+ * @param nQueensData* psNQueens
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void initApplicationData(applicationData* appData) 
+{
+	appData->iChessBoardLength = SMALLEST_BOARD;
+	appData->iAmountOfSolutions = AMOUNT_OF_SOLUTIONS;
+	strncpy(appData->acFilename, "..//resources//solutions.txt", 255);
+	appData->eAlgorithmMode = MODUS_CONTINUOUS;
+	appData->eSaveMode = FILE_SAVE_OFF;
+	appData->fRuntime = DEFAULT_RUNTIME;
+	strncpy(appData->acProgramStatus, "Pending...", 23);
+	generateChessBoard(&appData->ppiChessBoard, SMALLEST_BOARD);
+}
 
-	// Init gui
-	printUserInterface(psNQueens);
+/**
+ * @fn void initUserInterface(nQueensData* psNQueens)
+ * @brief initializes the user interface
+ * @param nQueensData* psNQueens
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void initUserInterface(applicationData* appData)
+{
+	printUserInterface(appData);
 }

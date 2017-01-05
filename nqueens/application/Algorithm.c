@@ -1,27 +1,36 @@
 /**
- * @file FileName
- * @brief
- * @author
- * @date
+ * @file Algorithm.c
+ * @brief contains the recursive algorithm to find the solutions
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include "../common_includes/Algorithm.h"
 
- /* A recursive utility function to solve N
-Queen problem */
+/**
+ * @fn bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
+ * @brief tries to place a queen in the given column
+ * @param int** ppiBoard, const int iBoardLength, int iColumn
+ * @return bool true and only if a queen was placed; other case false
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ *
+ * Checks first if there is already a queen placed. If and only if that case happens the algorithm will move to the next column.
+ * If the other case occurs it will try to set a queen in the given column.
+ */
 bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 {
 	int row = 0;
 	bool bQueenAlreadySet = false;
-	bool bQueen = false;
+	bool bValidPlacement = false;
 
-	/* base case: If all queens are placed then return true */
+	// If the board end is reached, then return true
 	if (iColumn >= iBoardLength)
 	{
-		bQueen = true;
+		bValidPlacement = true;
 	} 
 	else
 	{
-		// Check if there is a queen set it in this column
+		// Check if there is already queen set in this column
 		for (int m = 0; m < iBoardLength; m++) {
 			if (ppiBoard[m][iColumn] == 1)
 			{
@@ -38,49 +47,41 @@ bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 			}
 		}
 
-		/* Consider this column and try placing
-		this queen in all rows one by one */
-		for (int i = row; i < iBoardLength && bQueen == false; i++)
+		// Try placing this queen in all rows one by one
+		for (int i = row; i < iBoardLength && bValidPlacement == false; i++)
 		{
-			/* Check if queen can be placed on
-			board[i][col] */
-			if (isSafe(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadySet)
+			if (isPlacementValid(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadySet)
 			{
-				/* Place this queen in board[i][col] */
+				// Place queen
 				ppiBoard[i][iColumn] = 1;
 				bQueenAlreadySet = false;
-				//printSolution(board);
 
-				/* recur to place rest of the queens */
+				// Place next queen
 				if (solveNQUtil(ppiBoard, iBoardLength, iColumn + 1)) {
-					bQueen = true;
+					bValidPlacement = true;
 				}
 
-				if (bQueen == false) 
+				if (bValidPlacement == false)
 				{
-					/* If placing queen in board[i][col]
-					doesn't lead to a solution, then
-					remove queen from board[i][col] */
-					ppiBoard[i][iColumn] = 0; // BACKTRACK
+					// remove queen from board; backtracking to find the next solution
+					ppiBoard[i][iColumn] = 0;
 				}
 			}
 		}
-
-		/* If queen can not be place in any row in
-		this colum col then return false */
-		//return false;
 	}
 
-	return bQueen;
+	return bValidPlacement;
 }
 
-/* A utility function to check if a queen can
-be placed on board[row][col]. Note that this
-function is called when "col" queens are
-already placed in columns from 0 to col -1.
-So we need to check only left side for
-attacking queens */
-bool isSafe(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+/**
+ * @fn bool isPlacementValid(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+ * @brief checks if a queen can be placed safely at the given position 
+ * @param const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength
+ * @return bool
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+bool isPlacementValid(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
 	bool bSave = true;
 
@@ -99,7 +100,14 @@ bool isSafe(const int** ppiBoard, const int iRow, const int iColumn, const int i
 	return bSave;
 }
 
-	/* Check this row on left side */
+/**
+ * @fn bool checkLeftSideOfRow(const int** ppiBoard, const int iRow, const int iColumn)
+ * @brief checks if there is any queen on the left side (same row)
+ * @param const int** ppiBoard, const int iRow, const int iColumn
+ * @return bool
+ * @author Marcel Gruessinger 
+ * @date 27.12.2016
+ */
 bool checkLeftSideOfRow(const int** ppiBoard, const int iRow, const int iColumn)
 {
 	bool bLeftSideSafe = true;
@@ -115,7 +123,14 @@ bool checkLeftSideOfRow(const int** ppiBoard, const int iRow, const int iColumn)
 	return bLeftSideSafe;
 }
 
-/* Check upper diagonal on left side */
+/**
+ * @fn bool checkLeftUpperDiagonal(const int** ppiBoard, const int iRow, const int iColumn)
+ * @brief checks if there is any queen on the left upper diagonal
+ * @param const int** ppiBoard, const int iRow, const int iColumn
+ * @return bool
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
 bool checkLeftUpperDiagonal(const int** ppiBoard, const int iRow, const int iColumn)
 {
 	int i;
@@ -133,7 +148,14 @@ bool checkLeftUpperDiagonal(const int** ppiBoard, const int iRow, const int iCol
 	return bLeftUpperDiagonalSafe;
 }
 
-/* Check lower diagonal on left side */
+/**
+ * @fn bool checkLeftLowerDiagonal(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+ * @brief checks if there is any queen on the left upper diagonal
+ * @param const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength
+ * @return bool
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
 bool checkLeftLowerDiagonal(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
 	int i;

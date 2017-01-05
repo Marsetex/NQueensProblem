@@ -1,10 +1,10 @@
 /**
- * @file UserInterface.h
- * @brief contains the functions of Kap12_Auf02_DLL.c
+ * @file OutputController.h
+ * @brief declarations of the functions for OutputController.c
  * @author Marcel Gruessinger
- * @date 17.12.2016
+ * @date 27.12.2016
  */
 
-void printUserInterface(struct nQueens* psNQueens);
+void printUserInterface(applicationData* psNQueens);
 void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions);
-void printStatusBar(struct nQueens* psNQueens);
+void printStatusBar(applicationData* psNQueens);

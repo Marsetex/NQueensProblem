@@ -1,8 +1,8 @@
 /**
- * @file FileName
- * @brief
- * @author
- * @date
+ * @file AlgorithmHandler.c
+ * @brief handles the tasks after a solution was found
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <string.h>
 #include <conio.h>
@@ -14,19 +14,23 @@
 #include "../common_includes/OutputController.h"
 #include "../common_includes/RuntimeCalculator.h"
 
- /* This function solves the N Queen problem using
- Backtracking. It mainly uses solveNQUtil() to
- solve the problem. It returns false if queens
- cannot be placed, otherwise return true and
- prints placement of queens in the form of 1s.
- Please note that there may be more than one
- solutions, this function prints one of the
- feasible solutions.*/
-void runAlgorithm(nQueensData* data)
+/**
+ * @fn bool runAlgorithm(applicationData* data)
+ * @brief correct handling of the tasks after a solution was found
+ * @param nQueensData* data
+ * @return bool
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ *
+ * Appends solution to file, handles one-by-one and continious 
+ * mode, refreshes the user interface
+ */
+bool runAlgorithm(applicationData* data)
 {
 	bool bAlgorithmRunning = true;
 	bool bFirstTryToWrite = true;
 	bool bInterruptActive = true;
+	bool bExitPressed = false;
 	data->iAmountOfSolutions = 0;
 	data->fRuntime = 0.0f;
 
@@ -54,7 +58,7 @@ void runAlgorithm(nQueensData* data)
 			data->iAmountOfSolutions++;
 			printStatusBar(data);
 
-			if (data->eSaveModus == ON)
+			if (data->eSaveMode == ON)
 			{
 				if (bFirstTryToWrite == true)
 				{
@@ -67,7 +71,7 @@ void runAlgorithm(nQueensData* data)
 				appendToFile(ha, data->acFilename);
 			}
 
-			if (data->eAlgoModus == MODUS_ONE_BY_ONE)
+			if (data->eAlgorithmMode == MODUS_ONE_BY_ONE)
 			{
 				printChessBoard(data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
 				strncpy(data->acProgramStatus, "Any key to advance...", 23);
@@ -82,6 +86,11 @@ void runAlgorithm(nQueensData* data)
 							bAlgorithmRunning = false;
 							bInterruptActive = false;
 							break;
+						case 'e':
+							bAlgorithmRunning = false;
+							bInterruptActive = false;
+							bExitPressed = true;
+							break;
 						default:
 							bInterruptActive = false;
 							break;
@@ -90,9 +99,23 @@ void runAlgorithm(nQueensData* data)
 
 				bInterruptActive = true;
 			}
+
+			if (data->eAlgorithmMode == MODUS_CONTINUOUS)
+			{
+				if (_kbhit()) 
+				{
+					if(_getch() == 'e') 
+					{
+						bAlgorithmRunning = false;
+						bExitPressed = true;
+					}
+				}
+			}
 		}
 	}
 
 	strncpy(data->acProgramStatus, "Pending...", 23);
 	printStatusBar(data);
+
+	return bExitPressed;
 }

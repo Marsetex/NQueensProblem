@@ -11,18 +11,20 @@
 
 /**
  * @fn int main(void)
- * @brief
- * @param
- * @return
- * @author
- * @date
+ * @brief handles the first steps, which have to be done at application start
+ * @param void
+ * @return int
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 int main(void) {
-	nQueensData sNQueens;
+	applicationData appData;
 
-	initializeProgram(&sNQueens);
+	initConsoleWindow();
+	initApplicationData(&appData);
+	initUserInterface(&appData);
 
-	userInput(&sNQueens);
+	userInput(&appData);
 
 	return EXIT_SUCCESS;
 }

@@ -1,9 +1,9 @@
 /**
-* @file Kap12_Auf02_Header.c
-* @brief contains the functions of Kap12_Auf02_DLL.c
-* @author Marcel Gruessinger
-* @date 17.12.2016
-*/
+ * @file FileWriter.h
+ * @brief declarations of the functions for FileWriter.c
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
 #pragma warning(disable:4996)
 
 #ifdef DLL_EXPORTS

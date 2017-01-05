@@ -1,8 +1,8 @@
 /**
- * @file Kap12_Auf02_Header.h
- * @brief contains the functions of Kap12_Auf02_DLL.c
+ * @file RuntimeCalculator.h
+ * @brief declarations of the functions for RuntimeCalculator.c
  * @author Marcel Gruessinger
- * @date 17.12.2016
+ * @date 27.12.2016
  */
 #include <time.h>
 

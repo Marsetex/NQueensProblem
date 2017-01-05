@@ -1,41 +1,55 @@
 /**
  * @file ConsoleWindow.c
- * @brief
- * @author
- * @date
+ * @brief sets different properties of the console
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <windows.h>
 #include "../common_includes/ConsoleWindow.h"
 
 /**
- * @fn FunctionName
- * @brief
- * @param
- * @return
- * @author
- * @date
+ * @fn setTitleOfConsoleWindow(const char acTitle[])
+ * @brief sets the title of the console window
+ * @param const char acTitle[]
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
-void setConsoleWindowProperties(void)
+void setTitleOfConsoleWindow(const char acTitle[])
 {
-	// Set up the handles for reading/writing:
-	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
-	// Change the window title:
-	SetConsoleTitleA("NQueens Problem");
-	// Set up the required window size:
-	SMALL_RECT windowSize = { 0, 0, 80, 25 };
-	SetConsoleWindowInfo(wHnd, 1, &windowSize);
-	// Change the console window size:
-	// Create a COORD to hold the buffer size:
-	COORD bufferSize = { 10, 10 };
-	SetConsoleScreenBufferSize(wHnd, bufferSize);
+	SetConsoleTitleA(acTitle);
 }
 
-void setCursorPorperties(int i) 
+/**
+ * @fn void setSizeOfConsoleWindow(const short sRows)
+ * @brief sets the size of the console window
+ * @param const short sRows
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void setSizeOfConsoleWindow(const short sRows)
 {
 	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
-	// Cursor
+	
+	SMALL_RECT windowSize = { 0, 0, 80, sRows };
+	SetConsoleWindowInfo(wHnd, 1, &windowSize);
+}
+
+/**
+ * @fn void setCursorVisibility(int iVisibility)
+ * @brief changes the visibility of the cursor
+ * @param int iVisibilty
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void setCursorVisibility(const int iVisibility) 
+{
+	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 100;
-	info.bVisible = i;
+	info.bVisible = iVisibility;
 	SetConsoleCursorInfo(wHnd, &info);
 }

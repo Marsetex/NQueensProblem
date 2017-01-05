@@ -1,8 +1,8 @@
 /**
  * @file UserInterface.c
- * @brief
- * @author
- * @date
+ * @brief handles the output of the user interface
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <stdio.h>
 #include <string.h>
@@ -10,12 +10,12 @@
 #include "../common_includes/Utilities.h"
 
 /**
- * @fn FunctionName
- * @brief
- * @param 
- * @return
- * @author
- * @date
+ * @fn void printMenu(void)
+ * @brief prints the menu to the console window
+ * @param void
+ * @return void 
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 void printMenu(void) 
 {
@@ -29,52 +29,53 @@ void printMenu(void)
 }
 
 /**
- * @fn FunctionName
- * @brief
- * @param
- * @return
- * @author
- * @date
+ * @fn void printBoard(char acBoard[], int iBoardLength)
+ * @brief prints the chess board to the console window
+ * @param char acBoard[], int iBoardLength
+ * @return void 
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 void printBoard(char acBoard[], int iBoardLength) 
 {
-	short sBoardXCoordinats[13] = { 0, 0, 0, 0, 31, 30, 29, 26, 25, 23, 21, 19, 16 };
-	
-	short x = sBoardXCoordinats[iBoardLength];
-	short y = 7;
-	short i = 0;
-	const char s[2] = "\n";
-	char *token;
-	
-	/* get the first token */
-	token = strtok(acBoard, s);
+	short int siBoardXCoordinats[13] = { 0, 0, 0, 0, 31, 30, 29, 26, 25, 23, 21, 19, 16 };
+	short int siX = siBoardXCoordinats[iBoardLength];
+	short int siY = 7;
+	short int siRowCounter = 0;
 
-	/* walk through other tokens */
-	while (token != NULL)
+	const char acDelimiter[2] = "\n";
+	char* pcToken;
+
+	/*
+	 * The string acBoard has to be cut, because it has the wrong format. 
+	 */
+	pcToken = strtok(acBoard, acDelimiter);
+
+	while (pcToken != NULL)
 	{
-		_gotoxy(x, y + i);
+		_gotoxy(siX, siY + siRowCounter);
 
-		if (strstr(token, "-") || strstr(token, "|"))
+		if (strstr(pcToken, "-") || strstr(pcToken, "|"))
 		{
-			printf("%s \n", token);
-			i++;
+			printf("%s \n", pcToken);
+			siRowCounter++;
 		}
 
-		token = strtok(NULL, s);
+		pcToken = strtok(NULL, acDelimiter);
 	}
 }
 
 /**
- * @fn FunctionName
- * @brief
- * @param
- * @return
- * @author
- * @date
+ * @fn void printStatus(int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[])
+ * @brief prints the status bar to the console window
+ * @param int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[]
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 void printStatus(int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[])
 {
-	_gotoxy((short)0, (short)MENU_HEIGHT + (short)iBoardLength * 2 + (short)PADDING_STATUS_BAR);
+	_gotoxy(0, (short int)MENU_HEIGHT + (short int)iBoardLength * 2 + (short int)PADDING_STATUS_BAR);
 
 	printf("==== Status =====================================================================\n");
 	printf("|  Amount of solutions: %-5d  |  %-22s  |  Runtime: %-8f  |\n", iAmountOfSolutions, acProgramStatus , fRuntime);

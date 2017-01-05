@@ -1,8 +1,8 @@
 /**
- * @file Kap12_Auf02_Header.h
- * @brief contains the functions of Kap12_Auf02_DLL.c
+ * @file AlgorithmHandler.h
+ * @brief declarations of the functions for AlgorithmHandler.c
  * @author Marcel Gruessinger
- * @date 17.12.2016
+ * @date 27.12.2016
  */
 #include <time.h>
 
@@ -11,6 +11,5 @@
 #define false 0
 
 typedef int bool;
-typedef struct nQueens nQueensData;
 
-void runAlgorithm(nQueensData* data);
+bool runAlgorithm(applicationData* data);

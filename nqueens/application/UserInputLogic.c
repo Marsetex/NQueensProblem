@@ -1,8 +1,8 @@
 /**
- * @file FileName
- * @brief
- * @author
- * @date
+ * @file UserInputLogic.c
+ * @brief handles the business logic after a key is pressed
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <stdio.h>
 #include "../common_includes/NQueensData.h"
@@ -13,63 +13,122 @@
 #include "../common_includes/StringBuilder.h"
 #include "../common_includes/OutputController.h"
 
-void plusPressed(struct nQueens* psNQueens)
+/**
+ * @fn void plusPressed(applicationData* appData)
+ * @brief increases the length of the chess board and prints the updated board
+ * @param applicationData* appData
+ * @return void 
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void plusPressed(applicationData* appData)
 {
-	int*** pppi = &psNQueens->ppiChessBoard;
-	int* piBoardLength = &psNQueens->iChessBoardLength;
+	int*** pppi = &appData->ppiChessBoard;
+	int* piBoardLength = &appData->iChessBoardLength;
 
 	incrementBoardLength(piBoardLength);
-	freeChessBoardMemory(psNQueens->ppiChessBoard);
+	freeChessBoardMemory(appData->ppiChessBoard);
 	generateChessBoard(pppi, *piBoardLength);
-	printUserInterface(psNQueens);
+	printUserInterface(appData);
 }
 
-void minusPressed(struct nQueens* psNQueens)
+/**
+ * @fn void minusPressed(applicationData* appData)
+ * @brief decreases the length of the chess board and prints the updated board
+ * @param applicationData* appData
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void minusPressed(applicationData* appData)
 {
-	int*** pppi = &psNQueens->ppiChessBoard;
-	int* piBoardLength = &psNQueens->iChessBoardLength;
+	int*** pppi = &appData->ppiChessBoard;
+	int* piBoardLength = &appData->iChessBoardLength;
 
 	decrementBoardLength(piBoardLength);
-	freeChessBoardMemory(psNQueens->ppiChessBoard);
+	freeChessBoardMemory(appData->ppiChessBoard);
 	generateChessBoard(pppi, *piBoardLength);
-	printUserInterface(psNQueens);
+	printUserInterface(appData);
 }
 
-void fPressed(struct nQueens* psNQueens)
+/**
+ * @fn void fPressed(applicationData* appData)
+ * @brief changes the file save mode and updates the status bar
+ * @param applicationData* appData
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void fPressed(applicationData* appData)
 {
-	int* saveMode = (int*) &psNQueens->eSaveModus;
-
-	changeFileSaveMode(saveMode);
-	printStatusBar(psNQueens);
+	changeFileSaveMode(&appData->eSaveMode);
+	printStatusBar(appData);
 }
 
-void mPressed(struct nQueens* psNQueens)
+/**
+ * @fn void mPressed(applicationData* appData)
+ * @brief changes the algorithm mode and updates the status bar
+ * @param applicationData* appData
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void mPressed(applicationData* appData)
 {
-	int* a = (int*) &psNQueens->eAlgoModus;
-
-	changeAlgorithmMode(a);
-	printStatusBar(psNQueens);
+	changeAlgorithmMode(&appData->eAlgorithmMode);
+	printStatusBar(appData);
 }
 
-void nPressed(struct nQueens* psNQueens)
+/**
+ * @fn void nPressed(applicationData* appData)
+ * @brief changes the file name and updates the status bar
+ * @param applicationData* appData
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void nPressed(applicationData* appData)
 {
-	char ss[255];
+	char acFileNameInput[255];
 
-	setCursorPorperties(1);
-	changeFileName(psNQueens->acFilename, "");
-	printStatusBar(psNQueens);
-	_gotoxy((short)3, (short)23 + ((short)psNQueens->iChessBoardLength - SMALLEST_BOARD) * 2);
-	gets_s(ss, 76);
-	changeFileName(psNQueens->acFilename, ss);
-	printStatusBar(psNQueens);
-	setCursorPorperties(0);
+	// show cursor
+	setCursorVisibility(1);
+	
+	// clear file name
+	changeFileName(appData->acFilename, "");
+	printStatusBar(appData);
+
+	// get new file name
+	_gotoxy((short)3, (short)23 + ((short)appData->iChessBoardLength - SMALLEST_BOARD) * 2);
+	gets_s(acFileNameInput, 76);
+	changeFileName(appData->acFilename, acFileNameInput);
+	printStatusBar(appData);
+
+	// hide cursor
+	setCursorVisibility(0);
 }
 
-void rPressed(struct nQueens* psNQueens)
+/**
+ * @fn bool rPressed(applicationData* appData)
+ * @brief run algorithm to find solutions
+ * @param applicationData* appData
+ * @return bool user wants to exit 
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+bool rPressed(applicationData* appData)
 {
-	runAlgorithm(psNQueens);
+	return runAlgorithm(appData);
 }
 
+/**
+ * @fn void ePressed(int* iWaitingForInputActive)
+ * @brief sets the token, which says the application to wait for user input, to 0 (stop waiting for user input)
+ * @param int* iWaitingForInputActive
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
 void ePressed(int* iWaitingForInputActive) 
 {
 	*iWaitingForInputActive = 0;

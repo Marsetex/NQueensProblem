@@ -1,9 +1,11 @@
 /**
- * @file UserInterface.h
- * @brief contains the functions of Kap12_Auf02_DLL.c
+ * @file StringBuilder.h
+ * @brief declarations of the functions for StringBuilder.c
  * @author Marcel Gruessinger
- * @date 17.12.2016
+ * @date 27.12.2016
  */
 #pragma warning(disable:4996)
 
 void createCharArray(char dest[], int** source, int iBoardLength, int iSolutionNumber);
+void convertAlgorithmModeToString(char acBuffer[], algorithmMode algoMode);
+void convertSaveModeToString(char acBuffer[], fileSaveActive saveMode);

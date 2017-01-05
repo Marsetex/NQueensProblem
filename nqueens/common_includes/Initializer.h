@@ -1,9 +1,11 @@
 /**
  * @file Initializer.h
- * @brief
- * @author
- * @date
+ * @brief declarations of the functions for Initialiazer.c
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #pragma warning(disable:4996)
 
-void initializeProgram(nQueensData* psNQueens);
+void initConsoleWindow(void);
+void initApplicationData(applicationData* appData);
+void initUserInterface(applicationData* appData);

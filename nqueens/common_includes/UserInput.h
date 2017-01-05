@@ -1,8 +1,8 @@
 /**
  * @file UserInput.h
- * @brief
- * @author
- * @date
+ * @brief declarations of the functions for UserInput.c
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 
 #define true 1
@@ -10,4 +10,4 @@
 
 typedef int bool;
 
-void userInput(struct nQueens* psNQueens);
+void userInput(applicationData* psNQueens);

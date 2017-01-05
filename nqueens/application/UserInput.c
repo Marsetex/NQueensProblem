@@ -1,8 +1,8 @@
 /**
  * @file UserInput.c
- * @brief
- * @author
- * @date
+ * @brief handles user input
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #include <stdio.h>
 #include <conio.h>
@@ -10,12 +10,26 @@
 #include "../common_includes/UserInput.h"
 #include "../common_includes/UserInputLogic.h"
 
-void userInput(struct nQueens* psNQueens) 
+#define true 1
+#define false 0
+
+typedef int bool;
+
+/**
+ * @fn void userInput(applicationData* psNQueens)
+ * @brief handles the user input, when the application is in menu mode
+ * @param applicationData* psNQueens
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void userInput(applicationData* psNQueens) 
 {
 	int iChar = 0;
 	bool bWaitingForInputActive = true;
+	bool bExitPressed = false;
 	
-	while (bWaitingForInputActive)
+	while (bWaitingForInputActive && !bExitPressed)
 	{
 		if(_kbhit()) 
 		{
@@ -40,7 +54,7 @@ void userInput(struct nQueens* psNQueens)
 					nPressed(psNQueens);
 					break;
 				case 'r':
-					rPressed(psNQueens);
+					bExitPressed = rPressed(psNQueens);
 					break;
 				case 'e':
 					ePressed(&bWaitingForInputActive);

@@ -1,8 +1,8 @@
 /**
  * @file NQueensData.h
- * @brief
- * @author
- * @date
+ * @brief declarations of structs, enums, ... for the application 
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
  */
 #define SMALLEST_BOARD 4
 
@@ -20,9 +20,9 @@
 
 #define DEFAULT_RUNTIME 0
 
-typedef enum algorithmModus algorithmModus;
+typedef enum algorithmMode algorithmMode;
 typedef enum fileSaveActive fileSaveActive;
-typedef struct nQueens nQueensData;
+typedef struct applicationData applicationData;
 
 enum algorithmModus
 {
@@ -36,18 +36,14 @@ enum fileSaveActive
 	ON
 };
 
-/**
-* @struct nQueens
-* @brief Complex data type for solving the nQueens problem
-*/
-struct nQueens
+struct applicationData
 {
-	int iChessBoardLength;             ///< current dimension of the chessboard
-	int** ppiChessBoard;               ///< the chessboard itself or use int** ppiBoard; (mit malloc)
-	algorithmModus eAlgoModus;			 ///< STEP or CONTINUOUS 
-	fileSaveActive eSaveModus;			///< SAVE_OFF, SAVE_ON
-	int iAmountOfSolutions;				 ///< actual found solutions
-	char acFilename[255];             ///< path and filename where data shall be stored via DLL
-	float fRuntime;///< Variable for measuring the runtime of the algorithm
+	int iChessBoardLength;            
+	int** ppiChessBoard;               
+	algorithmMode eAlgorithmMode;		 
+	fileSaveActive eSaveMode;
+	int iAmountOfSolutions;				
+	char acFilename[255];             
+	float fRuntime;
 	char acProgramStatus[23];
 };
