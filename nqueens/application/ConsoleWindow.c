@@ -1,6 +1,6 @@
 /**
  * @file ConsoleWindow.c
- * @brief sets different properties of the console
+ * @brief contains functions to change properties of the console window
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
@@ -37,9 +37,9 @@ void setSizeOfConsoleWindow(void)
 }
 
 /**
- * @fn void setCursorVisibility(int iVisibility)
+ * @fn void setCursorVisibility(const int iVisibility)
  * @brief changes the visibility of the cursor
- * @param int iVisibilty
+ * @param const int iVisibilty
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

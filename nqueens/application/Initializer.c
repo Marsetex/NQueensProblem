@@ -1,6 +1,6 @@
 /**
  * @file Initializer.c
- * @brief initializes the application
+ * @brief contains methods to initialize the application
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
@@ -9,7 +9,6 @@
 #include "../common_includes/Initializer.h"
 #include "../common_includes/ConsoleWindow.h"
 #include "../common_includes/DataManipulator.h"
-#include "../common_includes/StringBuilder.h"
 #include "../common_includes/OutputController.h"
 
 /**
@@ -28,15 +27,16 @@ void initConsoleWindow(void)
 }
 
 /**
- * @fn void initApplicationData(nQueensData* psNQueens)
+ * @fn void initApplicationData(applicationData* appData) 
  * @brief initializes the application data
- * @param nQueensData* psNQueens
+ * @param applicationData* appData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
 void initApplicationData(applicationData* appData) 
 {
+	generateChessBoard(&appData->ppiChessBoard, SMALLEST_BOARD);
 	appData->iChessBoardLength = SMALLEST_BOARD;
 	appData->iAmountOfSolutions = AMOUNT_OF_SOLUTIONS;
 	strncpy(appData->acFilename, "..//resources//solutions.txt", 255);
@@ -44,13 +44,12 @@ void initApplicationData(applicationData* appData)
 	appData->eSaveMode = FILE_SAVE_OFF;
 	appData->fRuntime = DEFAULT_RUNTIME;
 	strncpy(appData->acProgramStatus, "Pending...", 23);
-	generateChessBoard(&appData->ppiChessBoard, SMALLEST_BOARD);
 }
 
 /**
- * @fn void initUserInterface(nQueensData* psNQueens)
+ * @fn void initUserInterface(applicationData* appData)
  * @brief initializes the user interface
- * @param nQueensData* psNQueens
+ * @param applicationData* appData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

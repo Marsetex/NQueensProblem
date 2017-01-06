@@ -20,10 +20,12 @@
 int main(void) {
 	applicationData appData;
 
+	// Init application
 	initConsoleWindow();
 	initApplicationData(&appData);
 	initUserInterface(&appData);
 
+	// Start waiting for user input
 	waitForUserInputInMenu(&appData);
 
 	return EXIT_SUCCESS;

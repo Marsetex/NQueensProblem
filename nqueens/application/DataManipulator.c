@@ -1,6 +1,6 @@
 /**
  * @file DataManipulator.c
- * @brief utils for manipulation application data
+ * @brief functions for manipulation the application data
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
@@ -10,14 +10,14 @@
 #include "../common_includes/DataManipulator.h"
 
  /**
- * @fn void generateChessBoard(int*** pppiBoard, int iBoardLength)
- * @brief generates a chessboard for the given size
- * @param int*** pppiBoard, int iBoardLength
+ * @fn void generateChessBoard(int*** pppiBoard, const int iBoardLength)
+ * @brief generates a chessboard for the given length
+ * @param int*** pppiBoard, const int iBoardLength
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void generateChessBoard(int*** pppiBoard, int iBoardLength)
+void generateChessBoard(int*** pppiBoard, const int iBoardLength)
 {
 	*pppiBoard = (int**)calloc(iBoardLength, sizeof(int*));
 	for (int i = 0; i < iBoardLength; i++) 
@@ -124,13 +124,14 @@ void changeAlgorithmMode(algorithmMode* eAlgoMode)
 }
 
 /**
- * @fn void changeFileName(char fileName[], char newFileName[])
- * @brief copies the file name into the destination array
- * @param char fileName[], char newFileName[]
+ * @fn void changeFileName(char acOldFileName[], const char acNewFileName[]) 
+ * @brief copies the new file name into the old file name
+ * @param char acOldFileName[], const char acNewFileName[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void changeFileName(char fileName[], char newFileName[]) {
-	strncpy(fileName, newFileName, 76);
+void changeFileName(char acOldFileName[], const char acNewFileName[]) 
+{
+	strncpy(acOldFileName, acNewFileName, 76);
 }

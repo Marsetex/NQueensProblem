@@ -4,6 +4,7 @@
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
+
 #pragma warning(disable:4996)
 
 void initConsoleWindow(void);
