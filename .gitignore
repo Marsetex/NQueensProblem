@@ -9,3 +9,4 @@
 *.opendb
 
 /nqueens/resources
+/nqueens/doxygen/html
