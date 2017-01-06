@@ -5,18 +5,17 @@
  * @date 27.12.2016
  */
 #include <stdio.h>
-#include <stdlib.h>
 #include "../common_includes/FileWriter.h"
 
 /**
- * @fn __declspec(dllexport) void writeToFile(int aiNumbers[], int iNumberOfElements)
- * @brief write an int array to a file
- * @param int aiNumbers[], int iNumberOfElements
+ * @fn __declspec(dllexport) void appendToFile(const char acText[], const char acFile[])
+ * @brief appends a given text to the given file
+ * @param const char acText[], const char acFile[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-__declspec(dllexport) void appendToFile(char acS[], char acFile[])
+__declspec(dllexport) void appendToFile(const char acText[], const char acFile[])
 {
 	FILE* psFile;
 
@@ -26,7 +25,7 @@ __declspec(dllexport) void appendToFile(char acS[], char acFile[])
 	if (psFile != 0)
 	{
 		// Write to file
-		fputs(acS, psFile);
+		fputs(acText, psFile);
 
 		fclose(psFile);
 	}
@@ -37,14 +36,14 @@ __declspec(dllexport) void appendToFile(char acS[], char acFile[])
 }
 
 /**
- * @fn __declspec(dllexport) void clearContentOfFile(char acFile[])
- * @brief clears the content of a file
- * @param char acFile[]
+ * @fn __declspec(dllexport) void clearContentOfFile(const char acFile[])
+ * @brief clears the content of the given file
+ * @param const char acFile[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-__declspec(dllexport) void clearContentOfFile(char acFile[]) 
+__declspec(dllexport) void clearContentOfFile(const char acFile[]) 
 {
 	FILE* psFile;
 

@@ -6,7 +6,7 @@
  */
 #include <stdlib.h>
 #include <string.h>
-#include "../common_includes/NQueensData.h"
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/DataManipulator.h"
 
  /**

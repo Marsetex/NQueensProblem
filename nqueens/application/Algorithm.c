@@ -4,6 +4,7 @@
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
+#include <stdbool.h>
 #include "../common_includes/Algorithm.h"
 
 /**

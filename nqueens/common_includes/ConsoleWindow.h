@@ -6,5 +6,5 @@
  */
 
 void setTitleOfConsoleWindow(const char acTitle[]);
-void setSizeOfConsoleWindow(const short sRows);
+void setSizeOfConsoleWindow(void);
 void setCursorVisibility(const int iVisibility);

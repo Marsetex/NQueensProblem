@@ -5,7 +5,8 @@
  * @date 27.12.2016
  */
 #include <stdio.h>
-#include "../common_includes/NQueensData.h"
+#include <stdbool.h>
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/AlgorithmHandler.h"
 #include "../common_includes/DataManipulator.h"
 #include "../common_includes/Utilities.h"
@@ -122,14 +123,14 @@ bool rPressed(applicationData* appData)
 }
 
 /**
- * @fn void ePressed(int* iWaitingForInputActive)
- * @brief sets the token, which says the application to wait for user input, to 0 (stop waiting for user input)
- * @param int* iWaitingForInputActive
+ * @fn void ePressed(bool* bWaitingForInputActive)
+ * @brief sets the token, which says the application to wait for user input, to false (stop waiting for user input)
+ * @param bool* bWaitingForInputActive
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void ePressed(int* iWaitingForInputActive) 
+void ePressed(bool* bWaitingForInputActive) 
 {
-	*iWaitingForInputActive = 0;
+	*bWaitingForInputActive = false;
 }

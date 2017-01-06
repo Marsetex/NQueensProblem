@@ -11,4 +11,4 @@ void fPressed(applicationData* psNQueens);
 void mPressed(applicationData* psNQueens);
 void nPressed(applicationData* psNQueens);
 bool rPressed(applicationData* psNQueens);
-void ePressed(int* iWaitingForInputActive);
+void ePressed(bool* bWaitingForInputActive);

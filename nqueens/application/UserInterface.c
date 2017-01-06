@@ -1,6 +1,6 @@
 /**
  * @file UserInterface.c
- * @brief handles the output of the user interface
+ * @brief contains functions to output the user interface
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */

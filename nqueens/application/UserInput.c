@@ -5,15 +5,12 @@
  * @date 27.12.2016
  */
 #include <stdio.h>
+#include <stdbool.h>
 #include <conio.h>
-#include "../common_includes/NQueensData.h"
+#include <ctype.h>
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/UserInput.h"
 #include "../common_includes/UserInputLogic.h"
-
-#define true 1
-#define false 0
-
-typedef int bool;
 
 /**
  * @fn void userInput(applicationData* psNQueens)
@@ -23,7 +20,7 @@ typedef int bool;
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void userInput(applicationData* psNQueens) 
+void waitForUserInputInMenu(applicationData* psNQueens)
 {
 	int iChar = 0;
 	bool bWaitingForInputActive = true;
@@ -33,8 +30,7 @@ void userInput(applicationData* psNQueens)
 	{
 		if(_kbhit()) 
 		{
-			// TODO: Make char lower case 
-			iChar = _getch();
+			iChar = tolower(_getch());
 
 			switch (iChar)
 			{

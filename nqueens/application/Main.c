@@ -5,7 +5,7 @@
  * @date 27.12.2016
  */
 #include <stdlib.h>
-#include "../common_includes/NQueensData.h"
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/Initializer.h"
 #include "../common_includes/UserInput.h"
 
@@ -24,7 +24,7 @@ int main(void) {
 	initApplicationData(&appData);
 	initUserInterface(&appData);
 
-	userInput(&appData);
+	waitForUserInputInMenu(&appData);
 
 	return EXIT_SUCCESS;
 }

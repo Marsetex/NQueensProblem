@@ -1,5 +1,5 @@
 /**
- * @file NQueensData.h
+ * @file ApplicationData.h
  * @brief declarations of structs, enums, ... for the application 
  * @author Marcel Gruessinger
  * @date 27.12.2016

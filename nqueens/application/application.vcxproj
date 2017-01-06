@@ -164,7 +164,7 @@
     <ClInclude Include="..\common_includes\DataManipulator.h" />
     <ClInclude Include="..\common_includes\FileWriter.h" />
     <ClInclude Include="..\common_includes\Initializer.h" />
-    <ClInclude Include="..\common_includes\NQueensData.h" />
+    <ClInclude Include="..\common_includes\ApplicationData.h" />
     <ClInclude Include="..\common_includes\OutputController.h" />
     <ClInclude Include="..\common_includes\RuntimeCalculator.h" />
     <ClInclude Include="..\common_includes\StringBuilder.h" />

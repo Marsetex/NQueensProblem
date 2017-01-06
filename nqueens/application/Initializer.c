@@ -5,8 +5,7 @@
  * @date 27.12.2016
  */
 #include <string.h>
-
-#include "../common_includes/NQueensData.h"
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/Initializer.h"
 #include "../common_includes/ConsoleWindow.h"
 #include "../common_includes/DataManipulator.h"
@@ -24,7 +23,7 @@
 void initConsoleWindow(void)
 {
 	setTitleOfConsoleWindow("NQueens-Problem");
-	setSizeOfConsoleWindow(25);
+	setSizeOfConsoleWindow();
 	setCursorVisibility(0);
 }
 

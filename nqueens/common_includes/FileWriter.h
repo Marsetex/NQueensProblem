@@ -12,5 +12,5 @@
 	#define DLL_TYPE __declspec(dllimport)
 #endif
 
-DLL_TYPE void appendToFile(char acS[], char acFile[]);
-DLL_TYPE void clearContentOfFile(char acFile[]);
+DLL_TYPE void appendToFile(const char acText[], const char acFile[]);
+DLL_TYPE void clearContentOfFile(const char acFile[]);

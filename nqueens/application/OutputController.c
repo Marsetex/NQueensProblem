@@ -1,11 +1,10 @@
 /**
  * @file OutputController.c
- * @brief the interface for outputting information
+ * @brief the interface for outputting information to the console window
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-#include <string.h>
-#include "../common_includes/NQueensData.h"
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/OutputController.h"
 #include "../common_includes/UserInterface.h"
 #include "../common_includes/Utilities.h"
@@ -22,6 +21,7 @@
 void printUserInterface(applicationData* appData)
 {
 	char acBoard[1350] = { "" };
+
 	createCharArray(acBoard, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
 
 	_clrscr();
@@ -41,6 +41,7 @@ void printUserInterface(applicationData* appData)
 void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions)
 {
 	char acBoard[1350] = { "" };
+
 	createCharArray(acBoard, ppiChessBoard, iChessBoardLength, iAmountOfSolutions);
 	printBoard(acBoard, iChessBoardLength);
 }

@@ -5,8 +5,10 @@
  * @date 27.12.2016
  */
 #include <string.h>
+#include <stdbool.h>
+#include <time.h>
 #include <conio.h>
-#include "../common_includes/NQueensData.h"
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/AlgorithmHandler.h"
 #include "../common_includes/Algorithm.h"
 #include "../common_includes/StringBuilder.h"

@@ -5,9 +5,4 @@
  * @date 27.12.2016
  */
 
-#define true 1
-#define false 0
-
-typedef int bool;
-
-void userInput(applicationData* psNQueens);
+void waitForUserInputInMenu(applicationData* psNQueens);

@@ -21,18 +21,18 @@ void setTitleOfConsoleWindow(const char acTitle[])
 }
 
 /**
- * @fn void setSizeOfConsoleWindow(const short sRows)
+ * @fn void setSizeOfConsoleWindow(void)
  * @brief sets the size of the console window
  * @param const short sRows
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void setSizeOfConsoleWindow(const short sRows)
+void setSizeOfConsoleWindow(void)
 {
 	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
-	
-	SMALL_RECT windowSize = { 0, 0, 80, sRows };
+	SMALL_RECT windowSize = { 0, 0, 80, 25 };
+
 	SetConsoleWindowInfo(wHnd, 1, &windowSize);
 }
 
@@ -47,9 +47,9 @@ void setSizeOfConsoleWindow(const short sRows)
 void setCursorVisibility(const int iVisibility) 
 {
 	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
-
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 100;
 	info.bVisible = iVisibility;
+
 	SetConsoleCursorInfo(wHnd, &info);
 }
