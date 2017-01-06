@@ -8,4 +8,4 @@
 
 void createCharArray(char dest[], int** source, int iBoardLength, int iSolutionNumber);
 void convertAlgorithmModeToString(char acBuffer[], algorithmMode algoMode);
-void convertSaveModeToString(char acBuffer[], fileSaveActive saveMode);
+void convertSaveModeToString(char acBuffer[], fileSaveMode eSaveMode);

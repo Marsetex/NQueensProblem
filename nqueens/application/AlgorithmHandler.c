@@ -27,97 +27,139 @@
  * Appends solution to file, handles one-by-one and continious 
  * mode, refreshes the user interface
  */
-bool runAlgorithm(applicationData* data)
+bool runAlgorithm(applicationData* appData)
 {
 	bool bAlgorithmRunning = true;
 	bool bFirstTryToWrite = true;
-	bool bInterruptActive = true;
 	bool bExitPressed = false;
-	data->iAmountOfSolutions = 0;
-	data->fRuntime = 0.0f;
+	appData->iAmountOfSolutions = 0;
+	appData->fRuntime = 0.0f;
 
-	strncpy(data->acProgramStatus, "Algorithm running...", 23);
-	printStatusBar(data);
+	// Update status of the application
+	strncpy(appData->acProgramStatus, "Algorithm running...", 23);
+	printStatusBar(appData);
 
 	while (bAlgorithmRunning)
 	{
 		// ticks since start of program
 		clock_t lTicksStart = clock();
 
-		bool solutionFound = solveNQUtil(data->ppiChessBoard, data->iChessBoardLength, 0);
+		bool bSolutionFound = solveNQUtil(appData->ppiChessBoard, appData->iChessBoardLength, 0);
 		
 		// passed ticks
 		clock_t lTicksEnd = clock();
 
-		calculateRuntime(lTicksStart, lTicksEnd, &data->fRuntime);
+		// Calculate current runtime
+		calculateRuntime(lTicksStart, lTicksEnd, &appData->fRuntime);
 
-		if (solutionFound == false)
+		if (bSolutionFound == false)
 		{
 			bAlgorithmRunning = false;
 		}
 		else 
 		{
-			data->iAmountOfSolutions++;
-			printStatusBar(data);
+			appData->iAmountOfSolutions++;
+			printStatusBar(appData);
 
-			if (data->eSaveMode == ON)
+			if (appData->eSaveMode == ON)
 			{
-				if (bFirstTryToWrite == true)
-				{
-					bFirstTryToWrite = false;
-					clearContentOfFile(data->acFilename);
-				}
-
-				char ha[1350] = { "" };
-				createCharArray(ha, data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
-				appendToFile(ha, data->acFilename);
+				saveSolutionToFile(appData, &bFirstTryToWrite);
 			}
 
-			if (data->eAlgorithmMode == MODUS_ONE_BY_ONE)
+			if (appData->eAlgorithmMode == MODUS_ONE_BY_ONE)
 			{
-				printChessBoard(data->ppiChessBoard, data->iChessBoardLength, data->iAmountOfSolutions);
-				strncpy(data->acProgramStatus, "Any key to advance...", 23);
-				printStatusBar(data);
-
-				while (bInterruptActive) {
-					int iChar = _getch();
-
-					switch (iChar)
-					{
-						case 's':
-							bAlgorithmRunning = false;
-							bInterruptActive = false;
-							break;
-						case 'e':
-							bAlgorithmRunning = false;
-							bInterruptActive = false;
-							bExitPressed = true;
-							break;
-						default:
-							bInterruptActive = false;
-							break;
-					}
-				}
-
-				bInterruptActive = true;
+				handleOneByOneMode(appData, &bAlgorithmRunning, &bExitPressed);
 			}
 
-			if (data->eAlgorithmMode == MODUS_CONTINUOUS)
+			if (appData->eAlgorithmMode == MODUS_CONTINUOUS)
 			{
-				if (_kbhit()) 
-				{
-					if(_getch() == 'e') 
-					{
-						bAlgorithmRunning = false;
-						bExitPressed = true;
-					}
-				}
+				handleContinuousMode(&bAlgorithmRunning, &bExitPressed);
 			}
 		}
 	}
 
-	strncpy(data->acProgramStatus, "Pending...", 23);
-	printStatusBar(data);
+	// Update status of the application
+	strncpy(appData->acProgramStatus, "Pending...", 23);
+	printStatusBar(appData);
 
 	return bExitPressed;
+}
+
+/**
+ * @fn void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite)
+ * @brief saves the solution to file; also clears the file if it is the first append 
+ * @param applicationData* appData, bool* bFirstTryToWrite
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite) 
+{
+	char acText[1350] = { "" };
+
+	if (*bFirstTryToWrite == true)
+	{
+		*bFirstTryToWrite = false;
+		clearContentOfFile(appData->acFilename);
+	}
+
+	createCharArray(acText, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
+	appendToFile(acText, appData->acFilename);
+}
+
+/**
+ * @fn void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed) 
+ * @brief waits for user input in ony-by-one-mode and handles it
+ * @param applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed) 
+{
+	bool bInterruptActive = true;
+
+	printChessBoard(appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
+	strncpy(appData->acProgramStatus, "Any key to advance...", 23);
+	printStatusBar(appData);
+
+	while (bInterruptActive) {
+		int iChar = _getch();
+
+		switch (iChar)
+		{
+			case 's':
+				*bAlgorithmRunning = false;
+				bInterruptActive = false;
+				break;
+			case 'e':
+				*bAlgorithmRunning = false;
+				bInterruptActive = false;
+				*bExitPressed = true;
+				break;
+			default:
+				bInterruptActive = false;
+				break;
+		}
+	}
+}
+
+/**
+ * @fn void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed)
+ * @brief waits for user input in continuous-mode and handles it
+ * @param bool* bAlgorithmRunning, bool* bExitPressed
+ * @return void
+ * @author Marcel Gruessinger
+ * @date 27.12.2016
+ */
+void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed)
+{
+	if (_kbhit())
+	{
+		if (_getch() == 'e')
+		{
+			*bAlgorithmRunning = false;
+			*bExitPressed = true;
+		}
+	}
 }

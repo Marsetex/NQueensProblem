@@ -6,3 +6,6 @@
  */
 
 bool runAlgorithm(applicationData* data);
+void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite);
+void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed);
+void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed);

@@ -20,7 +20,7 @@
  */
 bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 {
-	int row = 0;
+	int iRow = 0;
 	bool bQueenAlreadySet = false;
 	bool bValidPlacement = false;
 
@@ -37,19 +37,19 @@ bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 			{
 				if (iColumn != iBoardLength - 1)
 				{
-					row = m;
+					iRow = m;
 					bQueenAlreadySet = true;
 				}
 				else if (iColumn == iBoardLength - 1)
 				{
-					row = m + 1;
+					iRow = m + 1;
 					ppiBoard[m][iColumn] = 0;
 				}
 			}
 		}
 
 		// Try placing this queen in all rows one by one
-		for (int i = row; i < iBoardLength && bValidPlacement == false; i++)
+		for (int i = iRow; i < iBoardLength && bValidPlacement == false; i++)
 		{
 			if (isPlacementValid(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadySet)
 			{
@@ -115,7 +115,7 @@ bool checkLeftSideOfRow(const int** ppiBoard, const int iRow, const int iColumn)
 
 	for (int i = 0; i < iColumn; i++)
 	{
-		if (ppiBoard[iRow][i])
+		if (ppiBoard[iRow][i] == 1)
 		{
 			bLeftSideSafe = false;
 		}
@@ -140,7 +140,7 @@ bool checkLeftUpperDiagonal(const int** ppiBoard, const int iRow, const int iCol
 
 	for (i = iRow, j = iColumn; i >= 0 && j >= 0; i--, j--)
 	{
-		if (ppiBoard[i][j])
+		if (ppiBoard[i][j] == 1)
 		{
 			bLeftUpperDiagonalSafe = false;
 		}
@@ -165,7 +165,7 @@ bool checkLeftLowerDiagonal(const int** ppiBoard, const int iRow, const int iCol
 
 	for (i = iRow, j = iColumn; j >= 0 && i < iBoardLength; i++, j--)
 	{
-		if (ppiBoard[i][j])
+		if (ppiBoard[i][j] == 1)
 		{
 			bLeftLowerDiagonalSafe = false;
 		}

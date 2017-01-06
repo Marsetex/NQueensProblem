@@ -97,9 +97,9 @@ void convertAlgorithmModeToString(char acBuffer[], algorithmMode algoMode)
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void convertSaveModeToString(char acBuffer[], fileSaveActive saveMode)
+void convertSaveModeToString(char acBuffer[], fileSaveMode eSaveMode)
 {
-	if (saveMode == ON)
+	if (eSaveMode == ON)
 	{
 		strncpy(acBuffer, "ON", 4);
 	}

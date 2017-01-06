@@ -91,15 +91,15 @@ void decrementBoardLength(int* piBoardLength)
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void changeFileSaveMode(fileSaveActive* eSavingActive)
+void changeFileSaveMode(fileSaveMode* eSaveMode)
 {
-	if (*eSavingActive == ON)
+	if (*eSaveMode == ON)
 	{
-		*eSavingActive = OFF;
+		*eSaveMode = OFF;
 	}
 	else 
 	{
-		*eSavingActive = ON;
+		*eSaveMode = ON;
 	}
 }
 

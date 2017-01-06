@@ -21,7 +21,7 @@
 #define DEFAULT_RUNTIME 0
 
 typedef enum algorithmMode algorithmMode;
-typedef enum fileSaveActive fileSaveActive;
+typedef enum fileSaveMode fileSaveMode;
 typedef struct applicationData applicationData;
 
 enum algorithmModus
@@ -30,7 +30,7 @@ enum algorithmModus
 	CONTINIOUS
 };
 
-enum fileSaveActive
+enum fileSaveMode
 {
 	OFF,
 	ON
@@ -40,9 +40,9 @@ struct applicationData
 {
 	int iChessBoardLength;            
 	int** ppiChessBoard;               
-	algorithmMode eAlgorithmMode;		 
-	fileSaveActive eSaveMode;
 	int iAmountOfSolutions;				
+	algorithmMode eAlgorithmMode;		 
+	fileSaveMode eSaveMode;
 	char acFilename[255];             
 	float fRuntime;
 	char acProgramStatus[23];
