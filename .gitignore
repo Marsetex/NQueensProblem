@@ -10,3 +10,6 @@
 
 /nqueens/resources
 /nqueens/doxygen/html
+/nqueens/application/Release
+/nqueens/dll/Release
+/nqueens/Release
