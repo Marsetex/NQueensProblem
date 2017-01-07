@@ -1,6 +1,6 @@
 /**
  * @file UserInput.c
- * @brief handles user input
+ * @brief handles the user input from different modes
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
@@ -10,17 +10,17 @@
 #include <ctype.h>
 #include "../common_includes/ApplicationData.h"
 #include "../common_includes/UserInput.h"
-#include "../common_includes/UserInputLogic.h"
+#include "../common_includes/UserInputLogicMenu.h"
 
 /**
- * @fn void userInput(applicationData* psNQueens)
+ * @fn void userInput(applicationData* appData)
  * @brief handles the user input, when the application is in menu mode
- * @param applicationData* psNQueens
+ * @param applicationData* appData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void waitForUserInputInMenu(applicationData* psNQueens)
+void waitForUserInputInMenu(applicationData* appData)
 {
 	int iChar = 0;
 	bool bWaitingForInputActive = true;
@@ -35,22 +35,22 @@ void waitForUserInputInMenu(applicationData* psNQueens)
 			switch (iChar)
 			{
 				case '+':
-					plusPressed(psNQueens);
+					plusPressed(appData);
 					break;
 				case '-':
-					minusPressed(psNQueens);
+					minusPressed(appData);
 					break;
 				case 'f':
-					fPressed(psNQueens);
+					fPressed(appData);
 					break;
 				case 'm':
-					mPressed(psNQueens);
+					mPressed(appData);
 					break;
 				case 'n':
-					nPressed(psNQueens);
+					nPressed(appData);
 					break;
 				case 'r':
-					bExitPressed = rPressed(psNQueens);
+					bExitPressed = rPressed(appData);
 					break;
 				case 'e':
 					ePressed(&bWaitingForInputActive);

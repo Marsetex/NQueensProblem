@@ -34,7 +34,7 @@ void initConsoleWindow(void)
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void initApplicationData(applicationData* appData) 
+void initApplicationData(applicationData* appData)
 {
 	generateChessBoard(&appData->ppiChessBoard, SMALLEST_BOARD);
 	appData->iChessBoardLength = SMALLEST_BOARD;

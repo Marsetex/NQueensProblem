@@ -5,6 +5,6 @@
  * @date 27.12.2016
  */
 
-void printUserInterface(applicationData* psNQueens);
+void printUserInterface(applicationData* appData);
 void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions);
-void printStatusBar(applicationData* psNQueens);
+void printStatusBar(applicationData* appData);

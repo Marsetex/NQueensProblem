@@ -5,4 +5,4 @@
  * @date 27.12.2016
  */
 
-void waitForUserInputInMenu(applicationData* psNQueens);
+void waitForUserInputInMenu(applicationData* appData);

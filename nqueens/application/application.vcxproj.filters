@@ -39,16 +39,16 @@
     <ClCompile Include="AlgorithmHandler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StringBuilder.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OutputController.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserInputLogic.c">
+    <ClCompile Include="RuntimeCalculator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RuntimeCalculator.c">
+    <ClCompile Include="StringConverter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputLogicMenu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,13 +77,7 @@
     <ClInclude Include="..\common_includes\AlgorithmHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_includes\StringBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\common_includes\FileWriter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\common_includes\UserInputLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\OutputController.h">
@@ -93,6 +87,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\ApplicationData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\StringConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInputLogicMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

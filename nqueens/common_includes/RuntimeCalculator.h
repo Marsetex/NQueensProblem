@@ -4,6 +4,5 @@
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-#include <time.h>
 
-void calculateRuntime(clock_t lTicksStart, clock_t lTicksEnd, float* fRuntime);
+void calculateRuntime(const clock_t lTicksStart, const clock_t lTicksEnd, float* fRuntime);

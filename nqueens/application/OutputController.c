@@ -8,7 +8,7 @@
 #include "../common_includes/OutputController.h"
 #include "../common_includes/UserInterface.h"
 #include "../common_includes/Utilities.h"
-#include "../common_includes/StringBuilder.h"
+#include "../common_includes/StringConverter.h"
 
 /**
  * @fn void printUserInterface(applicationData* appData)
@@ -22,7 +22,7 @@ void printUserInterface(applicationData* appData)
 {
 	char acBoard[1350] = { "" };
 
-	createCharArray(acBoard, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
+	convertChessBoardToString(acBoard, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
 
 	_clrscr();
 	printMenu();
@@ -42,7 +42,8 @@ void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSo
 {
 	char acBoard[1350] = { "" };
 
-	createCharArray(acBoard, ppiChessBoard, iChessBoardLength, iAmountOfSolutions);
+	convertChessBoardToString(acBoard, ppiChessBoard, iChessBoardLength, iAmountOfSolutions);
+
 	printBoard(acBoard, iChessBoardLength);
 }
 

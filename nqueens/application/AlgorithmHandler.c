@@ -11,7 +11,7 @@
 #include "../common_includes/ApplicationData.h"
 #include "../common_includes/AlgorithmHandler.h"
 #include "../common_includes/Algorithm.h"
-#include "../common_includes/StringBuilder.h"
+#include "../common_includes/StringConverter.h"
 #include "../common_includes/FileWriter.h"
 #include "../common_includes/OutputController.h"
 #include "../common_includes/RuntimeCalculator.h"
@@ -95,7 +95,7 @@ bool runAlgorithm(applicationData* appData)
  */
 void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite) 
 {
-	char acText[1350] = { "" };
+	char acBoard[1350] = { "" };
 
 	if (*bFirstTryToWrite == true)
 	{
@@ -103,8 +103,8 @@ void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite)
 		clearContentOfFile(appData->acFilename);
 	}
 
-	createCharArray(acText, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
-	appendToFile(acText, appData->acFilename);
+	convertChessBoardToString(acBoard, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
+	appendToFile(acBoard, appData->acFilename);
 }
 
 /**

@@ -29,14 +29,14 @@ void printMenu(void)
 }
 
 /**
- * @fn void printBoard(char acBoard[], int iBoardLength)
+ * @fn void printBoard(char acBoard[], const int iBoardLength)
  * @brief prints the chess board to the console window
- * @param char acBoard[], int iBoardLength
+ * @param char acBoard[], const int iBoardLength
  * @return void 
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printBoard(char acBoard[], int iBoardLength) 
+void printBoard(char acBoard[], const int iBoardLength) 
 {
 	short int siBoardXCoordinats[13] = { 0, 0, 0, 0, 31, 30, 29, 26, 25, 23, 21, 19, 16 };
 	short int siX = siBoardXCoordinats[iBoardLength];
@@ -66,14 +66,14 @@ void printBoard(char acBoard[], int iBoardLength)
 }
 
 /**
- * @fn void printStatus(int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[])
+ * @fn void printStatus(const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[])
  * @brief prints the status bar to the console window
- * @param int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[]
+ * @param const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printStatus(int iBoardLength, char acAlgorithmMode[], char acFileSave[], char acProgramStatus[], int iAmountOfSolutions, float fRuntime, char acFilename[])
+void printStatus(const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[])
 {
 	_gotoxy(0, (short int)MENU_HEIGHT + (short int)iBoardLength * 2 + (short int)PADDING_STATUS_BAR);
 

@@ -1,17 +1,17 @@
 /**
- * @file UserInputLogic.c
- * @brief handles the business logic after a key is pressed
+ * @file UserInputLogicMenu.c
+ * @brief handles the business logic after a key is pressed (in menu mode)
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
 #include <stdio.h>
 #include <stdbool.h>
 #include "../common_includes/ApplicationData.h"
+#include "../common_includes/UserInputLogicMenu.h"
 #include "../common_includes/AlgorithmHandler.h"
 #include "../common_includes/DataManipulator.h"
 #include "../common_includes/Utilities.h"
 #include "../common_includes/ConsoleWindow.h"
-#include "../common_includes/StringBuilder.h"
 #include "../common_includes/OutputController.h"
 
 /**
@@ -100,7 +100,7 @@ void nPressed(applicationData* appData)
 	printStatusBar(appData);
 
 	// get new file name
-	_gotoxy((short)3, (short)23 + ((short)appData->iChessBoardLength - SMALLEST_BOARD) * 2);
+	_gotoxy(3, 23 + ((short int)appData->iChessBoardLength - SMALLEST_BOARD) * 2);
 	gets_s(acFileNameInput, 76);
 	changeFileName(appData->acFilename, acFileNameInput);
 	printStatusBar(appData);
