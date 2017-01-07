@@ -5,7 +5,6 @@
  * @date 27.12.2016
  */
 
+#pragma warning(disable:4996)
+
 bool runAlgorithm(applicationData* data);
-void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite);
-void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed);
-void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed);

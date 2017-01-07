@@ -22,7 +22,6 @@
  */
 void waitForUserInputInMenu(applicationData* psAppData)
 {
-	int iChar = 0;
 	bool bWaitingForInputActive = true;
 	bool bExitPressed = false;
 	
@@ -30,7 +29,7 @@ void waitForUserInputInMenu(applicationData* psAppData)
 	{
 		if(_kbhit()) 
 		{
-			iChar = tolower(_getch());
+			int iChar = tolower(_getch());
 
 			switch (iChar)
 			{

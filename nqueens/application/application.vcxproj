@@ -146,22 +146,27 @@
   <ItemGroup>
     <ClCompile Include="Algorithm.c" />
     <ClCompile Include="AlgorithmHandler.c" />
+    <ClCompile Include="AlgorithmModeHandler.c" />
     <ClCompile Include="ConsoleWindow.c" />
     <ClCompile Include="DataManipulator.c" />
+    <ClCompile Include="FileSaveModeHandler.c" />
     <ClCompile Include="Initializer.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="OutputController.c" />
     <ClCompile Include="RuntimeCalculator.c" />
     <ClCompile Include="StringConverter.c" />
     <ClCompile Include="UserInput.c" />
+    <ClCompile Include="UserInputLogicAlgorithm.c" />
     <ClCompile Include="UserInputLogicMenu.c" />
     <ClCompile Include="UserInterface.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common_includes\Algorithm.h" />
     <ClInclude Include="..\common_includes\AlgorithmHandler.h" />
+    <ClInclude Include="..\common_includes\AlgorithmModeHandler.h" />
     <ClInclude Include="..\common_includes\ConsoleWindow.h" />
     <ClInclude Include="..\common_includes\DataManipulator.h" />
+    <ClInclude Include="..\common_includes\FileSaveModeHandler.h" />
     <ClInclude Include="..\common_includes\FileWriter.h" />
     <ClInclude Include="..\common_includes\Initializer.h" />
     <ClInclude Include="..\common_includes\ApplicationData.h" />
@@ -169,6 +174,7 @@
     <ClInclude Include="..\common_includes\RuntimeCalculator.h" />
     <ClInclude Include="..\common_includes\StringConverter.h" />
     <ClInclude Include="..\common_includes\UserInput.h" />
+    <ClInclude Include="..\common_includes\UserInputLogicAlgorithm.h" />
     <ClInclude Include="..\common_includes\UserInputLogicMenu.h" />
     <ClInclude Include="..\common_includes\UserInterface.h" />
     <ClInclude Include="..\common_includes\Utilities.h" />
