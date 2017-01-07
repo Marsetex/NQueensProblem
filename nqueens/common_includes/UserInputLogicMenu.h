@@ -10,5 +10,5 @@ void minusPressed(applicationData* psAppData);
 void fPressed(applicationData* psAppData);
 void mPressed(applicationData* psAppData);
 void nPressed(applicationData* psAppData);
-bool rPressed(applicationData* psAppData);
-void ePressed(bool* bWaitingForInputActive);
+void rPressed(applicationData* psAppData);
+void ePressed(bool* bExitKeyPressed);

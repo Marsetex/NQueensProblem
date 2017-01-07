@@ -4,6 +4,7 @@
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
+#include <stdbool.h>
 
 #define SMALLEST_BOARD 4
 #define BIGGEST_BOARD 12
@@ -40,4 +41,5 @@ struct applicationData
 	char acFilename[255];             
 	float fRuntime;
 	char acProgramStatus[23];
+	bool bExitKeyPressed;
 };

@@ -22,10 +22,9 @@
  */
 void waitForUserInputInMenu(applicationData* psAppData)
 {
-	bool bWaitingForInputActive = true;
-	bool bExitPressed = false;
+	psAppData->bExitKeyPressed = false;
 	
-	while (bWaitingForInputActive && !bExitPressed)
+	while (!psAppData->bExitKeyPressed)
 	{
 		if(_kbhit()) 
 		{
@@ -49,10 +48,10 @@ void waitForUserInputInMenu(applicationData* psAppData)
 					nPressed(psAppData);
 					break;
 				case 'r':
-					bExitPressed = rPressed(psAppData);
+					rPressed(psAppData);
 					break;
 				case 'e':
-					ePressed(&bWaitingForInputActive);
+					ePressed(&psAppData->bExitKeyPressed);
 					break;
 				default:
 					break;

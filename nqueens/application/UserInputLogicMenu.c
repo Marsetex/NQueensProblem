@@ -110,27 +110,27 @@ void nPressed(applicationData* psAppData)
 }
 
 /**
- * @fn bool rPressed(applicationData* psAppData)
+ * @fn void rPressed(applicationData* psAppData)
  * @brief run algorithm to find solutions
  * @param applicationData* psAppData
- * @return bool user wants to exit 
+ * @return void 
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-bool rPressed(applicationData* psAppData)
+void rPressed(applicationData* psAppData)
 {
-	return runAlgorithm(psAppData);
+	runAlgorithm(psAppData);
 }
 
 /**
- * @fn void ePressed(bool* bWaitingForInputActive)
+ * @fn void ePressed(bool* bExitKeyPressed)
  * @brief sets the token, which says the application to wait for user input, to false (stop waiting for user input)
- * @param bool* bWaitingForInputActive
+ * @param bool* bExitKeyPressed
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void ePressed(bool* bWaitingForInputActive) 
+void ePressed(bool* bExitKeyPressed)
 {
-	*bWaitingForInputActive = false;
+	*bExitKeyPressed = true;
 }

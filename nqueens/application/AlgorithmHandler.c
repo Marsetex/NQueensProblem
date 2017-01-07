@@ -16,40 +16,40 @@
 #include "../common_includes/FileSaveModeHandler.h"
 
 /**
- * @fn bool runAlgorithm(applicationData* data)
+ * @fn void runAlgorithm(applicationData* data)
  * @brief correct handling of the tasks after a solution was found
  * @param nQueensData* data
- * @return bool
+ * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  *
  * Appends solution to file, handles one-by-one and continious 
  * mode, refreshes the user interface
  */
-bool runAlgorithm(applicationData* appData)
+void runAlgorithm(applicationData* psAppData)
 {
 	bool bAlgorithmRunning = true;
 	bool bFirstTryToWrite = true;
-	bool bExitPressed = false;
-	appData->iAmountOfSolutions = 0;
-	appData->fRuntime = 0.0f;
+	psAppData->bExitKeyPressed = false;
+	psAppData->iAmountOfSolutions = 0;
+	psAppData->fRuntime = 0.0f;
 
 	// Update status of the application
-	strncpy(appData->acProgramStatus, "Algorithm running...", 23);
-	printStatusBar(appData);
+	strncpy(psAppData->acProgramStatus, "Algorithm running...", 23);
+	printStatusBar(psAppData);
 
 	while (bAlgorithmRunning)
 	{
 		// ticks since start of program
 		clock_t lTicksStart = clock();
 
-		bool bSolutionFound = placeQueenOnBoard(appData->ppiChessBoard, appData->iChessBoardLength, 0);
+		bool bSolutionFound = placeQueenOnBoard(psAppData->ppiChessBoard, psAppData->iChessBoardLength, 0);
 		
 		// passed ticks
 		clock_t lTicksEnd = clock();
 
 		// Calculate current runtime
-		calculateRuntime(lTicksStart, lTicksEnd, &appData->fRuntime);
+		calculateRuntime(lTicksStart, lTicksEnd, &psAppData->fRuntime);
 
 		if (bSolutionFound == false)
 		{
@@ -57,29 +57,27 @@ bool runAlgorithm(applicationData* appData)
 		}
 		else 
 		{
-			appData->iAmountOfSolutions++;
-			printStatusBar(appData);
+			psAppData->iAmountOfSolutions++;
+			printStatusBar(psAppData);
 
-			if (appData->eSaveMode == ON)
+			if (psAppData->eSaveMode == ON)
 			{
-				saveSolutionToFile(appData, &bFirstTryToWrite);
+				saveSolutionToFile(psAppData, &bFirstTryToWrite);
 			}
 
-			if (appData->eAlgorithmMode == MODUS_ONE_BY_ONE)
+			if (psAppData->eAlgorithmMode == MODUS_ONE_BY_ONE)
 			{
-				handleOneByOneMode(appData, &bAlgorithmRunning, &bExitPressed);
+				handleOneByOneMode(psAppData, &bAlgorithmRunning, &psAppData->bExitKeyPressed);
 			}
 
-			if (appData->eAlgorithmMode == MODUS_CONTINUOUS)
+			if (psAppData->eAlgorithmMode == MODUS_CONTINUOUS)
 			{
-				handleContinuousMode(&bAlgorithmRunning, &bExitPressed);
+				handleContinuousMode(&bAlgorithmRunning, &psAppData->bExitKeyPressed);
 			}
 		}
 	}
 
 	// Update status of the application
-	strncpy(appData->acProgramStatus, "Pending...", 23);
-	printStatusBar(appData);
-
-	return bExitPressed;
+	strncpy(psAppData->acProgramStatus, "Pending...", 23);
+	printStatusBar(psAppData);
 }
