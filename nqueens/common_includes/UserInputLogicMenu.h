@@ -5,10 +5,10 @@
  * @date 27.12.2016
  */
 
-void plusPressed(applicationData* appData);
-void minusPressed(applicationData* appData);
-void fPressed(applicationData* appData);
-void mPressed(applicationData* appData);
-void nPressed(applicationData* appData);
-bool rPressed(applicationData* appData);
+void plusPressed(applicationData* psAppData);
+void minusPressed(applicationData* psAppData);
+void fPressed(applicationData* psAppData);
+void mPressed(applicationData* psAppData);
+void nPressed(applicationData* psAppData);
+bool rPressed(applicationData* psAppData);
 void ePressed(bool* bWaitingForInputActive);

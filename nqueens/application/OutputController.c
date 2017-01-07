@@ -18,7 +18,7 @@
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printUserInterface(applicationData* appData)
+void printUserInterface(const applicationData* appData)
 {
 	char acBoard[1350] = { "" };
 
@@ -31,14 +31,14 @@ void printUserInterface(applicationData* appData)
 }
 
 /**
- * @fn void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions)
+ * @fn void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
  * @brief prepares and prints the chess board
- * @param int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions
+ * @param const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions)
+void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
 {
 	char acBoard[1350] = { "" };
 
@@ -48,20 +48,20 @@ void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSo
 }
 
 /**
- * @fn void printStatusBar(applicationData* appData)
+ * @fn void printStatusBar(const applicationData* psAppData)
  * @brief prepares and prints the status bar
- * @param applicationData* appData
+ * @param const applicationData* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printStatusBar(applicationData* appData)
+void printStatusBar(const applicationData* psAppData)
 {
 	char acModus[11];
 	char acFileSave[4];
 
-	convertAlgorithmModeToString(acModus, appData->eAlgorithmMode);
-	convertSaveModeToString(acFileSave, appData->eSaveMode);
+	convertAlgorithmModeToString(acModus, psAppData->eAlgorithmMode);
+	convertSaveModeToString(acFileSave, psAppData->eSaveMode);
 
-	printStatus(appData->iChessBoardLength, acModus, acFileSave, appData->acProgramStatus, appData->iAmountOfSolutions, appData->fRuntime, appData->acFilename);
+	printStatus(psAppData->iChessBoardLength, acModus, acFileSave, psAppData->acProgramStatus, psAppData->iAmountOfSolutions, psAppData->fRuntime, psAppData->acFilename);
 }

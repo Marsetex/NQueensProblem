@@ -8,5 +8,5 @@
 #pragma warning(disable:4996)
 
 void initConsoleWindow(void);
-void initApplicationData(applicationData* appData);
-void initUserInterface(applicationData* appData);
+void initApplicationData(applicationData* psAppData);
+void initUserInterface(const applicationData* psAppData);

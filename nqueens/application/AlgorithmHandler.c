@@ -44,7 +44,7 @@ bool runAlgorithm(applicationData* appData)
 		// ticks since start of program
 		clock_t lTicksStart = clock();
 
-		bool bSolutionFound = solveNQUtil(appData->ppiChessBoard, appData->iChessBoardLength, 0);
+		bool bSolutionFound = placeQueenOnBoard(appData->ppiChessBoard, appData->iChessBoardLength, 0);
 		
 		// passed ticks
 		clock_t lTicksEnd = clock();

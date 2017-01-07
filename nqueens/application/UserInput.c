@@ -13,14 +13,14 @@
 #include "../common_includes/UserInputLogicMenu.h"
 
 /**
- * @fn void userInput(applicationData* appData)
+ * @fn void userInput(applicationData* psAppData)
  * @brief handles the user input, when the application is in menu mode
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void waitForUserInputInMenu(applicationData* appData)
+void waitForUserInputInMenu(applicationData* psAppData)
 {
 	int iChar = 0;
 	bool bWaitingForInputActive = true;
@@ -35,22 +35,22 @@ void waitForUserInputInMenu(applicationData* appData)
 			switch (iChar)
 			{
 				case '+':
-					plusPressed(appData);
+					plusPressed(psAppData);
 					break;
 				case '-':
-					minusPressed(appData);
+					minusPressed(psAppData);
 					break;
 				case 'f':
-					fPressed(appData);
+					fPressed(psAppData);
 					break;
 				case 'm':
-					mPressed(appData);
+					mPressed(psAppData);
 					break;
 				case 'n':
-					nPressed(appData);
+					nPressed(psAppData);
 					break;
 				case 'r':
-					bExitPressed = rPressed(appData);
+					bExitPressed = rPressed(psAppData);
 					break;
 				case 'e':
 					ePressed(&bWaitingForInputActive);

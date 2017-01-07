@@ -8,9 +8,9 @@
 #include "../common_includes/Algorithm.h"
 
 /**
- * @fn bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
+ * @fn bool placeQueenOnBoard(int** ppiBoard, const int iBoardLength, const int iColumn)
  * @brief tries to place a queen in the given column
- * @param int** ppiBoard, const int iBoardLength, int iColumn
+ * @param int** ppiBoard, const int iBoardLength, const int iColumn
  * @return bool true and only if a queen was placed; other case false
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -18,10 +18,10 @@
  * Checks first if there is already a queen placed. If and only if that case happens the algorithm will move to the next column.
  * If the other case occurs it will try to set a queen in the given column.
  */
-bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
+bool placeQueenOnBoard(int** ppiBoard, const int iBoardLength, const int iColumn)
 {
 	int iRow = 0;
-	bool bQueenAlreadySet = false;
+	bool bQueenAlreadyPlaced = false;
 	bool bValidPlacement = false;
 
 	// If the board end is reached, then return true
@@ -38,7 +38,7 @@ bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 				if (iColumn != iBoardLength - 1)
 				{
 					iRow = m;
-					bQueenAlreadySet = true;
+					bQueenAlreadyPlaced = true;
 				}
 				else if (iColumn == iBoardLength - 1)
 				{
@@ -51,14 +51,14 @@ bool solveNQUtil(int** ppiBoard, const int iBoardLength, int iColumn)
 		// Try placing this queen in all rows one by one
 		for (int i = iRow; i < iBoardLength && bValidPlacement == false; i++)
 		{
-			if (isPlacementValid(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadySet)
+			if (isPlacementValid(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadyPlaced)
 			{
 				// Place queen
 				ppiBoard[i][iColumn] = 1;
-				bQueenAlreadySet = false;
+				bQueenAlreadyPlaced = false;
 
 				// Place next queen
-				if (solveNQUtil(ppiBoard, iBoardLength, iColumn + 1)) {
+				if (placeQueenOnBoard(ppiBoard, iBoardLength, iColumn + 1)) {
 					bValidPlacement = true;
 				}
 

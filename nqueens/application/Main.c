@@ -18,15 +18,15 @@
  * @date 27.12.2016
  */
 int main(void) {
-	applicationData appData;
+	applicationData sAppData;
 
 	// Init application
 	initConsoleWindow();
-	initApplicationData(&appData);
-	initUserInterface(&appData);
+	initApplicationData(&sAppData);
+	initUserInterface(&sAppData);
 
 	// Start waiting for user input
-	waitForUserInputInMenu(&appData);
+	waitForUserInputInMenu(&sAppData);
 
 	return EXIT_SUCCESS;
 }

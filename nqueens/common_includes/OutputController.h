@@ -5,6 +5,6 @@
  * @date 27.12.2016
  */
 
-void printUserInterface(applicationData* appData);
-void printChessBoard(int** ppiChessBoard, int iChessBoardLength, int iAmountOfSolutions);
-void printStatusBar(applicationData* appData);
+void printUserInterface(const applicationData* appData);
+void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions);
+void printStatusBar(const applicationData* psAppData);

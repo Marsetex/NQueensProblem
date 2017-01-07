@@ -15,80 +15,80 @@
 #include "../common_includes/OutputController.h"
 
 /**
- * @fn void plusPressed(applicationData* appData)
+ * @fn void plusPressed(applicationData* psAppData)
  * @brief increases the length of the chess board and prints the updated board
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return void 
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void plusPressed(applicationData* appData)
+void plusPressed(applicationData* psAppData)
 {
-	int*** pppi = &appData->ppiChessBoard;
-	int* piBoardLength = &appData->iChessBoardLength;
+	int*** pppiBoard = &psAppData->ppiChessBoard;
+	int* piBoardLength = &psAppData->iChessBoardLength;
 
 	incrementBoardLength(piBoardLength);
-	freeChessBoardMemory(appData->ppiChessBoard);
-	generateChessBoard(pppi, *piBoardLength);
-	printUserInterface(appData);
+	freeChessBoardMemory(psAppData->ppiChessBoard);
+	generateChessBoard(pppiBoard, *piBoardLength);
+	printUserInterface(psAppData);
 }
 
 /**
- * @fn void minusPressed(applicationData* appData)
+ * @fn void minusPressed(applicationData* psAppData)
  * @brief decreases the length of the chess board and prints the updated board
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void minusPressed(applicationData* appData)
+void minusPressed(applicationData* psAppData)
 {
-	int*** pppi = &appData->ppiChessBoard;
-	int* piBoardLength = &appData->iChessBoardLength;
+	int*** pppiBoard = &psAppData->ppiChessBoard;
+	int* piBoardLength = &psAppData->iChessBoardLength;
 
 	decrementBoardLength(piBoardLength);
-	freeChessBoardMemory(appData->ppiChessBoard);
-	generateChessBoard(pppi, *piBoardLength);
-	printUserInterface(appData);
+	freeChessBoardMemory(psAppData->ppiChessBoard);
+	generateChessBoard(pppiBoard, *piBoardLength);
+	printUserInterface(psAppData);
 }
 
 /**
- * @fn void fPressed(applicationData* appData)
+ * @fn void fPressed(applicationData* psAppData)
  * @brief changes the file save mode and updates the status bar
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void fPressed(applicationData* appData)
+void fPressed(applicationData* psAppData)
 {
-	changeFileSaveMode(&appData->eSaveMode);
-	printStatusBar(appData);
+	changeFileSaveMode(&psAppData->eSaveMode);
+	printStatusBar(psAppData);
 }
 
 /**
- * @fn void mPressed(applicationData* appData)
+ * @fn void mPressed(applicationData* psAppData)
  * @brief changes the algorithm mode and updates the status bar
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void mPressed(applicationData* appData)
+void mPressed(applicationData* psAppData)
 {
-	changeAlgorithmMode(&appData->eAlgorithmMode);
-	printStatusBar(appData);
+	changeAlgorithmMode(&psAppData->eAlgorithmMode);
+	printStatusBar(psAppData);
 }
 
 /**
- * @fn void nPressed(applicationData* appData)
+ * @fn void nPressed(applicationData* psAppData)
  * @brief changes the file name and updates the status bar
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void nPressed(applicationData* appData)
+void nPressed(applicationData* psAppData)
 {
 	char acFileNameInput[255];
 
@@ -96,30 +96,30 @@ void nPressed(applicationData* appData)
 	setCursorVisibility(1);
 	
 	// clear file name
-	changeFileName(appData->acFilename, "");
-	printStatusBar(appData);
+	changeFileName(psAppData->acFilename, "");
+	printStatusBar(psAppData);
 
 	// get new file name
-	_gotoxy(3, 23 + ((short int)appData->iChessBoardLength - SMALLEST_BOARD) * 2);
+	_gotoxy(3, 23 + ((short int)psAppData->iChessBoardLength - SMALLEST_BOARD) * 2);
 	gets_s(acFileNameInput, 76);
-	changeFileName(appData->acFilename, acFileNameInput);
-	printStatusBar(appData);
+	changeFileName(psAppData->acFilename, acFileNameInput);
+	printStatusBar(psAppData);
 
 	// hide cursor
 	setCursorVisibility(0);
 }
 
 /**
- * @fn bool rPressed(applicationData* appData)
+ * @fn bool rPressed(applicationData* psAppData)
  * @brief run algorithm to find solutions
- * @param applicationData* appData
+ * @param applicationData* psAppData
  * @return bool user wants to exit 
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-bool rPressed(applicationData* appData)
+bool rPressed(applicationData* psAppData)
 {
-	return runAlgorithm(appData);
+	return runAlgorithm(psAppData);
 }
 
 /**
