@@ -5,7 +5,5 @@
  * @date 27.12.2016
  */
 
-#pragma warning(disable:4996)
-
-void waitForUserInputInOneByOne(bool* bInterruptActive, bool* bAlgorithmRunning, bool* bExitPressed);
-void waitForUserInputInContinuous(bool* bAlgorithmRunning, bool* bExitPressed);
+void sPressedInAlgorithmMode(bool* bAlgorithmRunning);
+void ePressedInAlgorithmMode(bool* bAlgorithmRunning, bool* bExitPressed);

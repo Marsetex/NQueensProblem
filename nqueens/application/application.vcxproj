@@ -155,7 +155,8 @@
     <ClCompile Include="OutputController.c" />
     <ClCompile Include="RuntimeCalculator.c" />
     <ClCompile Include="StringConverter.c" />
-    <ClCompile Include="UserInput.c" />
+    <ClCompile Include="UserInputAlgorithm.c" />
+    <ClCompile Include="UserInputMenu.c" />
     <ClCompile Include="UserInputLogicAlgorithm.c" />
     <ClCompile Include="UserInputLogicMenu.c" />
     <ClCompile Include="UserInterface.c" />
@@ -173,7 +174,8 @@
     <ClInclude Include="..\common_includes\OutputController.h" />
     <ClInclude Include="..\common_includes\RuntimeCalculator.h" />
     <ClInclude Include="..\common_includes\StringConverter.h" />
-    <ClInclude Include="..\common_includes\UserInput.h" />
+    <ClInclude Include="..\common_includes\UserInputAlgorithm.h" />
+    <ClInclude Include="..\common_includes\UserInputMenu.h" />
     <ClInclude Include="..\common_includes\UserInputLogicAlgorithm.h" />
     <ClInclude Include="..\common_includes\UserInputLogicMenu.h" />
     <ClInclude Include="..\common_includes\UserInterface.h" />

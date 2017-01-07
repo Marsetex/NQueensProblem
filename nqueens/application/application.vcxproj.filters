@@ -30,9 +30,6 @@
     <ClCompile Include="UserInterface.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserInput.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DataManipulator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,6 +57,12 @@
     <ClCompile Include="FileSaveModeHandler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserInputMenu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputAlgorithm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common_includes\Algorithm.h">
@@ -75,9 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\UserInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\common_includes\UserInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\DataManipulator.h">
@@ -111,6 +111,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\UserInputLogicAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInputMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInputAlgorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

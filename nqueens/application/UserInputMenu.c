@@ -1,6 +1,6 @@
 /**
- * @file UserInput.c
- * @brief handles the user input from different modes
+ * @file UserInputMenu.c
+ * @brief handles the user input in menu mode
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
@@ -9,7 +9,7 @@
 #include <conio.h>
 #include <ctype.h>
 #include "../common_includes/ApplicationData.h"
-#include "../common_includes/UserInput.h"
+#include "../common_includes/UserInputMenu.h"
 #include "../common_includes/UserInputLogicMenu.h"
 
 /**

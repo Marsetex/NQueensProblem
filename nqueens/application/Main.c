@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "../common_includes/ApplicationData.h"
 #include "../common_includes/Initializer.h"
-#include "../common_includes/UserInput.h"
+#include "../common_includes/UserInputMenu.h"
 
 /**
  * @fn int main(void)

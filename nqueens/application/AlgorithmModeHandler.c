@@ -10,7 +10,7 @@
 #include "../common_includes/ApplicationData.h"
 #include "../common_includes/AlgorithmModeHandler.h"
 #include "../common_includes/OutputController.h"
-#include "../common_includes/UserInputLogicAlgorithm.h"
+#include "../common_includes/UserInputAlgorithm.h"
 
 /**
 * @fn void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed)
@@ -22,15 +22,11 @@
 */
 void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed)
 {
-	bool bInterruptActive = true;
-
 	printChessBoard(appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
 	strncpy(appData->acProgramStatus, "Any key to advance...", 23);
 	printStatusBar(appData);
 
-	while (bInterruptActive) {
-		waitForUserInputInOneByOne(&bInterruptActive, bAlgorithmRunning, bExitPressed);
-	}
+	waitForUserInputInOneByOne(bAlgorithmRunning, bExitPressed);
 }
 
 /**
