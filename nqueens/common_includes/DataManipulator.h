@@ -11,6 +11,6 @@ void generateChessBoard(int*** pppiBoard, const int iBoardLength);
 void freeChessBoardMemory(int** ppiBoard);
 void incrementBoardLength(int* piBoardLength);
 void decrementBoardLength(int* piBoardLength);
-void changeFileSaveMode(fileSaveMode* eSaveMode);
-void changeAlgorithmMode(algorithmMode* eAlgoMode);
+void changeFileSaveMode(FileSaveMode_t* eSaveMode);
+void changeAlgorithmMode(AlgorithmMode_t* eAlgoMode);
 void changeFileName(char acOldFileName[], const char acNewFileName[]);

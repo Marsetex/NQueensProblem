@@ -27,34 +27,34 @@ void initConsoleWindow(void)
 }
 
 /**
- * @fn void initApplicationData(applicationData* psAppData) 
+ * @fn void initApplicationData(AppData_t* psAppData) 
  * @brief initializes the application data
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void initApplicationData(applicationData* psAppData)
+void initApplicationData(AppData_t* psAppData)
 {
 	generateChessBoard(&psAppData->ppiChessBoard, SMALLEST_BOARD);
 	psAppData->iChessBoardLength = SMALLEST_BOARD;
 	psAppData->iAmountOfSolutions = AMOUNT_OF_SOLUTIONS;
 	strncpy(psAppData->acFilename, "..//resources//solutions.txt", 255);
 	psAppData->eAlgorithmMode = MODUS_CONTINUOUS;
-	psAppData->eSaveMode = FILE_SAVE_OFF;
+	psAppData->eFileSaveMode = FILE_SAVE_OFF;
 	psAppData->fRuntime = DEFAULT_RUNTIME;
 	strncpy(psAppData->acProgramStatus, "Pending...", 23);
 }
 
 /**
- * @fn void initUserInterface(const applicationData* psAppData)
+ * @fn void initUserInterface(const AppData_t* psAppData)
  * @brief initializes the user interface
- * @param const applicationData* psAppData
+ * @param const AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void initUserInterface(const applicationData* psAppData)
+void initUserInterface(const AppData_t* psAppData)
 {
 	printUserInterface(psAppData);
 }

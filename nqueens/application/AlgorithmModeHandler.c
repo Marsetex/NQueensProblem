@@ -13,18 +13,18 @@
 #include "../common_includes/UserInputAlgorithm.h"
 
 /**
-* @fn void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed)
+* @fn void handleOneByOneMode(AppData_t* psAppData, bool* bAlgorithmRunning, bool* bExitPressed)
 * @brief waits for user input in ony-by-one-mode and handles it
-* @param applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed
+* @param AppData_t* psAppData, bool* bAlgorithmRunning, bool* bExitPressed
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed)
+void handleOneByOneMode(AppData_t* psAppData, bool* bAlgorithmRunning, bool* bExitPressed)
 {
-	printChessBoard(appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
-	strncpy(appData->acProgramStatus, "Any key to advance...", 23);
-	printStatusBar(appData);
+	printChessBoard(psAppData->ppiChessBoard, psAppData->iChessBoardLength, psAppData->iAmountOfSolutions);
+	strncpy(psAppData->acProgramStatus, "Any key to advance...", 23);
+	printStatusBar(psAppData);
 
 	waitForUserInputInOneByOne(bAlgorithmRunning, bExitPressed);
 }

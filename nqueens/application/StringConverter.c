@@ -71,14 +71,14 @@ void convertChessBoardToString(char acBoard[], const int** ppiBoard, const int i
 }
 
 /**
- * @fn void convertAlgorithmModeToString(char acBuffer[], const algorithmMode eAlgoMode)
+ * @fn void convertAlgorithmModeToString(char acBuffer[], const AlgorithmMode_t eAlgoMode)
  * @brief converts the alogrithm mode enum to a string representation
- * @param char acBuffer[], const algorithmMode eAlgoMode
+ * @param char acBuffer[], const AlgorithmMode_t eAlgoMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void convertAlgorithmModeToString(char acBuffer[], const algorithmMode eAlgoMode) 
+void convertAlgorithmModeToString(char acBuffer[], const AlgorithmMode_t eAlgoMode) 
 {
 	if (eAlgoMode == MODUS_CONTINUOUS)
 	{
@@ -91,14 +91,14 @@ void convertAlgorithmModeToString(char acBuffer[], const algorithmMode eAlgoMode
 }
 
 /**
- * @fn void convertSaveModeToString(char acBuffer[], const fileSaveActive saveMode)
+ * @fn void convertSaveModeToString(char acBuffer[], const FileSaveActive_t saveMode)
  * @brief converts the file save active enum to a string representation
  * @param char acBuffer[], const fileSaveActive saveMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void convertSaveModeToString(char acBuffer[], const fileSaveMode eSaveMode)
+void convertSaveModeToString(char acBuffer[], const FileSaveMode_t eSaveMode)
 {
 	if (eSaveMode == ON)
 	{

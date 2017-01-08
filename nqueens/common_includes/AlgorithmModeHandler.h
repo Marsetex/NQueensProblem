@@ -7,5 +7,5 @@
 
 #pragma warning(disable:4996)
 
-void handleOneByOneMode(applicationData* appData, bool* bAlgorithmRunning, bool* bExitPressed);
+void handleOneByOneMode(AppData_t* appData, bool* bAlgorithmRunning, bool* bExitPressed);
 void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed);

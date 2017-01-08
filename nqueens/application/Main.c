@@ -18,7 +18,7 @@
  * @date 27.12.2016
  */
 int main(void) {
-	applicationData sAppData;
+	AppData_t sAppData;
 
 	// Init application
 	initConsoleWindow();

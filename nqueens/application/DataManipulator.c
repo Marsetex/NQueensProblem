@@ -84,14 +84,14 @@ void decrementBoardLength(int* piBoardLength)
 }
 
 /**
- * @fn void changeFileSaveMode(fileSaveActive* eSavingActive)
+ * @fn void changeFileSaveMode(FileSaveMode_t* eSaveMode)
  * @brief toogles between the existing file save modes
- * @param algorithmMode* eAlgoMode
+ * @param FileSaveMode_t* eSaveMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void changeFileSaveMode(fileSaveMode* eSaveMode)
+void changeFileSaveMode(FileSaveMode_t* eSaveMode)
 {
 	if (*eSaveMode == ON)
 	{
@@ -104,14 +104,14 @@ void changeFileSaveMode(fileSaveMode* eSaveMode)
 }
 
 /**
- * @fn void changeAlgorithmMode(algorithmMode* eAlgoMode)
+ * @fn void changeAlgorithmMode(AlgorithmMode_t* eAlgoMode)
  * @brief toogles between the existing algorithm modes
- * @param algorithmMode* eAlgoMode
+ * @param AlgorithmMode_t* eAlgoMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void changeAlgorithmMode(algorithmMode* eAlgoMode) 
+void changeAlgorithmMode(AlgorithmMode_t* eAlgoMode) 
 {
 	if (*eAlgoMode == MODUS_ONE_BY_ONE)
 	{

@@ -13,14 +13,14 @@
 #include "../common_includes/UserInputLogicMenu.h"
 
 /**
- * @fn void userInput(applicationData* psAppData)
+ * @fn void userInput(AppData_t* psAppData)
  * @brief handles the user input, when the application is in menu mode
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void waitForUserInputInMenu(applicationData* psAppData)
+void waitForUserInputInMenu(AppData_t* psAppData)
 {
 	psAppData->bExitKeyPressed = false;
 	

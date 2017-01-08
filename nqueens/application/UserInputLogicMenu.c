@@ -15,14 +15,14 @@
 #include "../common_includes/OutputController.h"
 
 /**
- * @fn void plusPressed(applicationData* psAppData)
+ * @fn void plusPressed(AppData_t* psAppData)
  * @brief increases the length of the chess board and prints the updated board
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void 
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void plusPressed(applicationData* psAppData)
+void plusPressed(AppData_t* psAppData)
 {
 	int*** pppiBoard = &psAppData->ppiChessBoard;
 	int* piBoardLength = &psAppData->iChessBoardLength;
@@ -34,14 +34,14 @@ void plusPressed(applicationData* psAppData)
 }
 
 /**
- * @fn void minusPressed(applicationData* psAppData)
+ * @fn void minusPressed(AppData_t* psAppData)
  * @brief decreases the length of the chess board and prints the updated board
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void minusPressed(applicationData* psAppData)
+void minusPressed(AppData_t* psAppData)
 {
 	int*** pppiBoard = &psAppData->ppiChessBoard;
 	int* piBoardLength = &psAppData->iChessBoardLength;
@@ -53,42 +53,42 @@ void minusPressed(applicationData* psAppData)
 }
 
 /**
- * @fn void fPressed(applicationData* psAppData)
+ * @fn void fPressed(AppData_t* psAppData)
  * @brief changes the file save mode and updates the status bar
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void fPressed(applicationData* psAppData)
+void fPressed(AppData_t* psAppData)
 {
-	changeFileSaveMode(&psAppData->eSaveMode);
+	changeFileSaveMode(&psAppData->eFileSaveMode);
 	printStatusBar(psAppData);
 }
 
 /**
- * @fn void mPressed(applicationData* psAppData)
+ * @fn void mPressed(AppData_t* psAppData)
  * @brief changes the algorithm mode and updates the status bar
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void mPressed(applicationData* psAppData)
+void mPressed(AppData_t* psAppData)
 {
 	changeAlgorithmMode(&psAppData->eAlgorithmMode);
 	printStatusBar(psAppData);
 }
 
 /**
- * @fn void nPressed(applicationData* psAppData)
+ * @fn void nPressed(AppData_t* psAppData)
  * @brief changes the file name and updates the status bar
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void nPressed(applicationData* psAppData)
+void nPressed(AppData_t* psAppData)
 {
 	char acFileNameInput[255];
 
@@ -110,14 +110,14 @@ void nPressed(applicationData* psAppData)
 }
 
 /**
- * @fn void rPressed(applicationData* psAppData)
+ * @fn void rPressed(AppData_t* psAppData)
  * @brief run algorithm to find solutions
- * @param applicationData* psAppData
+ * @param AppData_t* psAppData
  * @return void 
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void rPressed(applicationData* psAppData)
+void rPressed(AppData_t* psAppData)
 {
 	runAlgorithm(psAppData);
 }

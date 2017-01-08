@@ -11,14 +11,14 @@
 #include "../common_includes/StringConverter.h"
 
 /**
- * @fn void printUserInterface(applicationData* appData)
+ * @fn void printUserInterface(AppData_t* appData)
  * @brief prepares and prints the whole user interface
- * @param applicationData* appData
+ * @param AppData_t* appData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printUserInterface(const applicationData* appData)
+void printUserInterface(const AppData_t* appData)
 {
 	char acBoard[1350] = { "" };
 
@@ -48,20 +48,20 @@ void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, con
 }
 
 /**
- * @fn void printStatusBar(const applicationData* psAppData)
+ * @fn void printStatusBar(const AppData_t* psAppData)
  * @brief prepares and prints the status bar
- * @param const applicationData* psAppData
+ * @param const AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printStatusBar(const applicationData* psAppData)
+void printStatusBar(const AppData_t* psAppData)
 {
 	char acModus[11];
 	char acFileSave[4];
 
 	convertAlgorithmModeToString(acModus, psAppData->eAlgorithmMode);
-	convertSaveModeToString(acFileSave, psAppData->eSaveMode);
+	convertSaveModeToString(acFileSave, psAppData->eFileSaveMode);
 
 	printStatus(psAppData->iChessBoardLength, acModus, acFileSave, psAppData->acProgramStatus, psAppData->iAmountOfSolutions, psAppData->fRuntime, psAppData->acFilename);
 }

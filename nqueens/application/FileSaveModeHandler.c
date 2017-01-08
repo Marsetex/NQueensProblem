@@ -11,14 +11,14 @@
 #include "../common_includes/StringConverter.h"
 
 /**
-* @fn void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite)
+* @fn void saveSolutionToFile(AppData_t* appData, bool* bFirstTryToWrite)
 * @brief saves the solution to file; also clears the file if it is the first append
-* @param applicationData* appData, bool* bFirstTryToWrite
+* @param AppData_t* appData, bool* bFirstTryToWrite
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void saveSolutionToFile(applicationData* appData, bool* bFirstTryToWrite)
+void saveSolutionToFile(AppData_t* appData, bool* bFirstTryToWrite)
 {
 	char acBoard[1350] = { "" };
 

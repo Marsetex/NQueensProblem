@@ -16,9 +16,9 @@
 #include "../common_includes/FileSaveModeHandler.h"
 
 /**
- * @fn void runAlgorithm(applicationData* data)
+ * @fn void runAlgorithm(AppData_t* psAppData)
  * @brief correct handling of the tasks after a solution was found
- * @param nQueensData* data
+ * @param AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -26,7 +26,7 @@
  * Appends solution to file, handles one-by-one and continious 
  * mode, refreshes the user interface
  */
-void runAlgorithm(applicationData* psAppData)
+void runAlgorithm(AppData_t* psAppData)
 {
 	bool bAlgorithmRunning = true;
 	bool bFirstTryToWrite = true;
@@ -60,7 +60,7 @@ void runAlgorithm(applicationData* psAppData)
 			psAppData->iAmountOfSolutions++;
 			printStatusBar(psAppData);
 
-			if (psAppData->eSaveMode == ON)
+			if (psAppData->eFileSaveMode == ON)
 			{
 				saveSolutionToFile(psAppData, &bFirstTryToWrite);
 			}
