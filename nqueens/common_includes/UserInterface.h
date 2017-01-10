@@ -12,4 +12,4 @@
 
 void printMenu(void);
 void printBoard(char acBoard[], const int iBoardLength);
-void printStatus(const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[]);
+void printStatus(const AppData_t* const psAppData, const char acAlgorithmMode[], const char acFileSave[]);

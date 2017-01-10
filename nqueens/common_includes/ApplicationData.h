@@ -41,5 +41,6 @@ struct applicationData
 	char acFilename[255];             
 	float fRuntime;
 	char acProgramStatus[23];
+	char acErrorDescription[76];
 	bool bExitKeyPressed;
 };

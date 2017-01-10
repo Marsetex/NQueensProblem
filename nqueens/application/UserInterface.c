@@ -6,6 +6,7 @@
  */
 #include <stdio.h>
 #include <string.h>
+#include "../common_includes/ApplicationData.h"
 #include "../common_includes/UserInterface.h"
 #include "../common_includes/Utilities.h"
 
@@ -66,22 +67,23 @@ void printBoard(char acBoard[], const int iBoardLength)
 }
 
 /**
- * @fn void printStatus(const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[])
+ * @fn void printStatus(const AppData_t* const psAppData, const char acAlgorithmMode[], const char acFileSave[])
  * @brief prints the status bar to the console window
- * @param const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[]
+ * @param const AppData_t* const psAppData, const char acAlgorithmMode[], const char acFileSave[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printStatus(const int iBoardLength, const char acAlgorithmMode[], const char acFileSave[], const char acProgramStatus[], const int iAmountOfSolutions, const float fRuntime, const char acFilename[])
+void printStatus(const AppData_t* const psAppData, const char acAlgorithmMode[], const char acFileSave[])
 {
-	_gotoxy(0, (short int)MENU_HEIGHT + (short int)iBoardLength * 2 + (short int)PADDING_STATUS_BAR);
+	_gotoxy(0, (short int)MENU_HEIGHT + (short int)psAppData->iChessBoardLength * 2 + (short int)PADDING_STATUS_BAR);
 
 	printf("==== Status =====================================================================\n");
-	printf("|  Amount of solutions: %-5d  |  %-22s  |  Runtime: %-8f  |\n", iAmountOfSolutions, acProgramStatus , fRuntime);
+	printf("|  Amount of solutions: %-5d  |  %-22s  |  Runtime: %-8f  |\n", psAppData->iAmountOfSolutions, psAppData->acProgramStatus , psAppData->fRuntime);
 	printf("|-------------------------------------------------------------------------------|\n");
-	printf("|  Mode: %s               Board size: %2dx%2d          Save to file: %-3s  |\n", acAlgorithmMode, iBoardLength, iBoardLength, acFileSave);
+	printf("|  Mode: %s               Board size: %2dx%2d          Save to file: %-3s  |\n", acAlgorithmMode, psAppData->iChessBoardLength, psAppData->iChessBoardLength, acFileSave);
 	printf("|  Path to file and name (max. length: 75):                                     |\n");
-	printf("|  %-75s  |\n", acFilename);
+	printf("|  %-75s  |\n", psAppData->acFilename);
+	printf("|  %-75s  |\n", psAppData->acErrorDescription);
 	printf("=================================================================================\n");
 }

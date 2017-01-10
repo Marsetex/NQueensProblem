@@ -48,14 +48,14 @@ void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, con
 }
 
 /**
- * @fn void printStatusBar(const AppData_t* psAppData)
+ * @fn void printStatusBar(const AppData_t* const psAppData)
  * @brief prepares and prints the status bar
  * @param const AppData_t* psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printStatusBar(const AppData_t* psAppData)
+void printStatusBar(const AppData_t* const psAppData)
 {
 	char acModus[11];
 	char acFileSave[4];
@@ -63,5 +63,5 @@ void printStatusBar(const AppData_t* psAppData)
 	convertAlgorithmModeToString(acModus, psAppData->eAlgorithmMode);
 	convertSaveModeToString(acFileSave, psAppData->eFileSaveMode);
 
-	printStatus(psAppData->iChessBoardLength, acModus, acFileSave, psAppData->acProgramStatus, psAppData->iAmountOfSolutions, psAppData->fRuntime, psAppData->acFilename);
+	printStatus(psAppData, acModus, acFileSave);
 }

@@ -7,4 +7,4 @@
 
 void printUserInterface(const AppData_t* appData);
 void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions);
-void printStatusBar(const AppData_t* psAppData);
+void printStatusBar(const AppData_t* const psAppData);

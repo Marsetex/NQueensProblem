@@ -9,7 +9,7 @@
 #include <ctype.h>
 #include "../common_includes/ApplicationData.h"
 #include "../common_includes/UserInputAlgorithm.h"
-#include "../common_includes/UserInputLogicAlgorithm.h"
+#include "../common_includes/UserInputAlgorithmLogic.h"
 
  /**
  * @fn void waitForUserInputInOneByOne(bool* bAlgorithmRunning, bool* bExitPressed)

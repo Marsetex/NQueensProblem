@@ -18,15 +18,18 @@
  * @date 27.12.2016
  */
 int main(void) {
-	AppData_t sAppData;
+	AppData_t* psAppData = 0;
+	psAppData = (AppData_t*)malloc(sizeof(AppData_t));
 
 	// Init application
 	initConsoleWindow();
-	initApplicationData(&sAppData);
-	initUserInterface(&sAppData);
+	initApplicationData(psAppData);
+	initUserInterface(psAppData);
 
 	// Start waiting for user input
-	waitForUserInputInMenu(&sAppData);
+	waitForUserInputInMenu(psAppData);
+
+	free(psAppData);
 
 	return EXIT_SUCCESS;
 }

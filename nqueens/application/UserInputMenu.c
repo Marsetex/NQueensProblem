@@ -10,7 +10,7 @@
 #include <ctype.h>
 #include "../common_includes/ApplicationData.h"
 #include "../common_includes/UserInputMenu.h"
-#include "../common_includes/UserInputLogicMenu.h"
+#include "../common_includes/UserInputMenuLogic.h"
 
 /**
  * @fn void userInput(AppData_t* psAppData)

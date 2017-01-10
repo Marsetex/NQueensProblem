@@ -84,21 +84,21 @@ bool placeQueenOnBoard(int** ppiBoard, const int iBoardLength, const int iColumn
  */
 bool isPlacementValid(const int** ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
-	bool bSave = true;
+	bool bValid = true;
 
-	bSave = checkLeftSideOfRow(ppiBoard, iRow, iColumn);
+	bValid = checkLeftSideOfRow(ppiBoard, iRow, iColumn);
 
-	if (bSave == true) 
+	if (bValid == true)
 	{
-		bSave = checkLeftUpperDiagonal(ppiBoard, iRow, iColumn);
+		bValid = checkLeftUpperDiagonal(ppiBoard, iRow, iColumn);
 	}
 
-	if (bSave == true) 
+	if (bValid == true)
 	{
-		bSave = checkLeftLowerDiagonal(ppiBoard, iRow, iColumn, iBoardLength);
+		bValid = checkLeftLowerDiagonal(ppiBoard, iRow, iColumn, iBoardLength);
 	}
 
-	return bSave;
+	return bValid;
 }
 
 /**

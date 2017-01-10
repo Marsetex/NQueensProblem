@@ -18,16 +18,16 @@
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void saveSolutionToFile(AppData_t* appData, bool* bFirstTryToWrite)
+void saveSolutionToFile(AppData_t* psAppData, bool* bFirstTryToWrite)
 {
 	char acBoard[1350] = { "" };
 
 	if (*bFirstTryToWrite == true)
 	{
 		*bFirstTryToWrite = false;
-		clearContentOfFile(appData->acFilename);
+		clearContentOfFile(psAppData->acFilename, psAppData->acErrorDescription);
 	}
 
-	convertChessBoardToString(acBoard, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
-	appendToFile(acBoard, appData->acFilename);
+	convertChessBoardToString(acBoard, psAppData->ppiChessBoard, psAppData->iChessBoardLength, psAppData->iAmountOfSolutions);
+	appendToFile(acBoard, psAppData->acFilename, psAppData->acErrorDescription);
 }

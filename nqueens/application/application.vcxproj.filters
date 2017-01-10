@@ -33,9 +33,6 @@
     <ClCompile Include="DataManipulator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AlgorithmHandler.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OutputController.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,12 +40,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StringConverter.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInputLogicMenu.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInputLogicAlgorithm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AlgorithmModeHandler.c">
@@ -64,6 +55,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Utilities.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgorithmController.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputAlgorithmLogic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputMenuLogic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,9 +86,6 @@
     <ClInclude Include="..\common_includes\DataManipulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_includes\AlgorithmHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\common_includes\FileWriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -104,22 +101,25 @@
     <ClInclude Include="..\common_includes\StringConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_includes\UserInputLogicMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\common_includes\AlgorithmModeHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\FileSaveModeHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_includes\UserInputLogicAlgorithm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\common_includes\UserInputMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common_includes\UserInputAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\AlgorithmController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInputAlgorithmLogic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_includes\UserInputMenuLogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
