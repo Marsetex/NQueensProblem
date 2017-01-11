@@ -32,7 +32,8 @@ void printMenu(void)
 /**
  * @fn void printBoard(char acBoard[], const int iBoardLength)
  * @brief prints the chess board to the console window
- * @param char acBoard[], const int iBoardLength
+ * @param char acBoard[]
+ * @param const int iBoardLength
  * @return void 
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -47,9 +48,7 @@ void printBoard(char acBoard[], const int iBoardLength)
 	const char acDelimiter[2] = "\n";
 	char* pcToken;
 
-	/*
-	 * The string acBoard has to be cut, because it has the wrong format. 
-	 */
+	// The string acBoard has to be cut, because it has the wrong format (it contains the solution number). 
 	pcToken = strtok(acBoard, acDelimiter);
 
 	while (pcToken != NULL)

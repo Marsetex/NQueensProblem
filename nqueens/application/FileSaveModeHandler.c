@@ -13,7 +13,8 @@
 /**
 * @fn void saveSolutionToFile(AppData_t* const psAppData, bool* const pbFirstTryToWrite)
 * @brief saves the solution to file; also clears the file if it is the first append
-* @param AppData_t* const psAppData, bool* const pbFirstTryToWrite
+* @param AppData_t* const psAppData
+* @param bool* const pbFirstTryToWrite
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016

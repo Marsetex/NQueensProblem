@@ -7,10 +7,17 @@
 #include <stdbool.h>
 #include "../common_includes/Algorithm.h"
 
+static bool isPlacementValid(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength);
+static bool checkLeftSideOfRow(const int** const ppiBoard, const int iRow, const int iColumn);
+static bool checkLeftUpperDiagonal(const int** const ppiBoard, const int iRow, const int iColumn);
+static bool checkLeftLowerDiagonal(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength);
+
 /**
  * @fn bool placeQueenOnBoard(int** const ppiBoard, const int iBoardLength, const int iColumn)
  * @brief tries to place a queen in the given column
- * @param int** const ppiBoard, const int iBoardLength, const int iColumn
+ * @param int** const ppiBoard
+ * @param const int iBoardLength
+ * @param const int iColumn
  * @return bool true and only if a queen was placed; other case false
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -43,7 +50,7 @@ bool placeQueenOnBoard(int** const ppiBoard, const int iBoardLength, const int i
 				else if (iColumn == iBoardLength - 1)
 				{
 					iRow = m + 1;
-					ppiBoard[m][iColumn] = 0;
+					ppiBoard[m][iColumn] = SET_BLANK;
 				}
 			}
 		}
@@ -51,10 +58,10 @@ bool placeQueenOnBoard(int** const ppiBoard, const int iBoardLength, const int i
 		// Try placing this queen in all rows one by one
 		for (int i = iRow; i < iBoardLength && bValidPlacement == false; i++)
 		{
-			if (isPlacementValid(ppiBoard, i, iColumn, iBoardLength) || bQueenAlreadyPlaced)
+			if (bQueenAlreadyPlaced || isPlacementValid(ppiBoard, i, iColumn, iBoardLength))
 			{
 				// Place queen
-				ppiBoard[i][iColumn] = 1;
+				ppiBoard[i][iColumn] = SET_QUEEN;
 				bQueenAlreadyPlaced = false;
 
 				// Place next queen
@@ -65,7 +72,7 @@ bool placeQueenOnBoard(int** const ppiBoard, const int iBoardLength, const int i
 				if (bValidPlacement == false)
 				{
 					// remove queen from board; backtracking to find the next solution
-					ppiBoard[i][iColumn] = 0;
+					ppiBoard[i][iColumn] = SET_BLANK;
 				}
 			}
 		}
@@ -75,14 +82,17 @@ bool placeQueenOnBoard(int** const ppiBoard, const int iBoardLength, const int i
 }
 
 /**
- * @fn bool isPlacementValid(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+ * @fn static bool isPlacementValid(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
  * @brief checks if a queen can be placed safely at the given position 
- * @param const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength
+ * @param const int** const ppiBoard
+ * @param const int iRow
+ * @param const int iColumn
+ * @param const int iBoardLength
  * @return bool
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-bool isPlacementValid(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+static bool isPlacementValid(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
 	bool bValid = true;
 
@@ -102,14 +112,16 @@ bool isPlacementValid(const int** const ppiBoard, const int iRow, const int iCol
 }
 
 /**
- * @fn bool checkLeftSideOfRow(const int** const ppiBoard, const int iRow, const int iColumn)
+ * @fn static bool checkLeftSideOfRow(const int** const ppiBoard, const int iRow, const int iColumn)
  * @brief checks if there is any queen on the left side (same row)
- * @param const int** const ppiBoard, const int iRow, const int iColumn
+ * @param const int** const ppiBoard
+ * @param const int iRow
+ * @param const int iColumn
  * @return bool
  * @author Marcel Gruessinger 
  * @date 27.12.2016
  */
-bool checkLeftSideOfRow(const int** const ppiBoard, const int iRow, const int iColumn)
+static bool checkLeftSideOfRow(const int** const ppiBoard, const int iRow, const int iColumn)
 {
 	bool bLeftSideSafe = true;
 
@@ -125,14 +137,16 @@ bool checkLeftSideOfRow(const int** const ppiBoard, const int iRow, const int iC
 }
 
 /**
- * @fn bool checkLeftUpperDiagonal(const int** const ppiBoard, const int iRow, const int iColumn)
+ * @fn static bool checkLeftUpperDiagonal(const int** const ppiBoard, const int iRow, const int iColumn)
  * @brief checks if there is any queen on the left upper diagonal
- * @param const int** const ppiBoard, const int iRow, const int iColumn
+ * @param const int** const ppiBoard
+ * @param const int iRow
+ * @param const int iColumn
  * @return bool
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-bool checkLeftUpperDiagonal(const int** const ppiBoard, const int iRow, const int iColumn)
+static bool checkLeftUpperDiagonal(const int** const ppiBoard, const int iRow, const int iColumn)
 {
 	int i;
 	int j;
@@ -150,14 +164,17 @@ bool checkLeftUpperDiagonal(const int** const ppiBoard, const int iRow, const in
 }
 
 /**
- * @fn bool checkLeftLowerDiagonal(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+ * @fn static bool checkLeftLowerDiagonal(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
  * @brief checks if there is any queen on the left upper diagonal
- * @param const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength
+ * @param const int** const ppiBoard
+ * @param const int iRow
+ * @param const int iColumn 
+ * @param const int iBoardLength
  * @return bool
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-bool checkLeftLowerDiagonal(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
+static bool checkLeftLowerDiagonal(const int** const ppiBoard, const int iRow, const int iColumn, const int iBoardLength)
 {
 	int i;
 	int j;

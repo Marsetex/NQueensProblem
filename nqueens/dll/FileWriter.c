@@ -11,7 +11,9 @@
 /**
  * @fn __declspec(dllexport) void appendToFile(const char acText[], const char acFile[], char acErrorDescription[])
  * @brief appends a given text to the given file
- * @param const char acText[], const char acFile[], char acErrorDescription[]
+ * @param const char acText[]
+ * @param const char acFile[]
+ * @param char acErrorDescription[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -39,7 +41,8 @@ DLL_TYPE void appendToFile(const char acText[], const char acFile[], char acErro
 /**
  * @fn __declspec(dllexport) void clearContentOfFile(const char acFile[], char acErrorDescription[])
  * @brief clears the content of the given file
- * @param const char acFile[], char acErrorDescription[]
+ * @param const char acFile[]
+ * @param char acErrorDescription[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

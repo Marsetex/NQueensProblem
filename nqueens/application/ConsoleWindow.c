@@ -23,7 +23,7 @@ void setTitleOfConsoleWindow(const char acTitle[])
 /**
  * @fn void setSizeOfConsoleWindow(void)
  * @brief sets the size of the console window
- * @param const short sRows
+ * @param void
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

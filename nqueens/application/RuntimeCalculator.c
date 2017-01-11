@@ -10,7 +10,9 @@
 /**
  * @fn void calculateRuntime(const clock_t lTicksStart, const clock_t lTicksEnd, float* const pfRuntime)
  * @brief calculates the runtime by the given start and end ticks
- * @param const clock_t lTicksStart, const clock_t lTicksEnd, float* const pfRuntime
+ * @param const clock_t lTicksStart
+ * @param const clock_t lTicksEnd
+ * @param float* const pfRuntime
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

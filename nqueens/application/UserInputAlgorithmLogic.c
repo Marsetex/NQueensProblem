@@ -23,7 +23,8 @@ void sPressedInAlgorithmMode(bool* const pbAlgorithmRunning)
 /**
  * @fn void ePressedInAlgorithmMode(bool* const pbAlgorithmRunning, bool* const pbExitKeyPressed)
  * @brief sets the tokens to stop the application
- * @param bool* const pbAlgorithmRunning, bool* const pbExitKeyPressed
+ * @param bool* const pbAlgorithmRunning
+ * @param bool* const pbExitKeyPressed
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

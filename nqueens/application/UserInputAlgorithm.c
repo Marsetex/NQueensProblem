@@ -14,7 +14,8 @@
  /**
  * @fn void waitForUserInputInOneByOne(bool* const pbAlgorithmRunning, bool* const pbExitPressed)
  * @brief handles the user input, when the application is in one-by-one mode
- * @param  bool* const pbAlgorithmRunning, bool* const pbExitPressed
+ * @param bool* const pbAlgorithmRunning
+ * @param bool* const pbExitPressed
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -48,14 +49,15 @@ void waitForUserInputInOneByOne(bool* const pbAlgorithmRunning, bool* const pbEx
 }
 
 /**
-* @fn void waitForUserInputInContinuous(bool* const pbAlgorithmRunning, bool* constp bExitPressed)
+* @fn void waitForUserInputInContinuous(bool* const pbAlgorithmRunning, bool* constp bExitKeyPressed)
 * @brief handles the user input, when the application is in continuous mode
-* @param bool* const pbAlgorithmRunning, bool* const pbExitPressed
+* @param bool* const pbAlgorithmRunning
+* @param bool* const pbExitPressed
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void waitForUserInputInContinuous(bool* const pbAlgorithmRunning, bool* const pbExitPressed)
+void waitForUserInputInContinuous(bool* const pbAlgorithmRunning, bool* const pbExitKeyPressed)
 {
 	if (_kbhit())
 	{
@@ -63,7 +65,7 @@ void waitForUserInputInContinuous(bool* const pbAlgorithmRunning, bool* const pb
 
 		if (iChar == 'e')
 		{
-			ePressedInAlgorithmMode(pbAlgorithmRunning, pbExitPressed);
+			ePressedInAlgorithmMode(pbAlgorithmRunning, pbExitKeyPressed);
 		}
 	}
 }

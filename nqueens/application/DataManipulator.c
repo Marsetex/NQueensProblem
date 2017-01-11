@@ -12,7 +12,8 @@
  /**
  * @fn void generateChessBoard(int*** const pppiBoard, const int iBoardLength)
  * @brief generates a chessboard for the given length
- * @param int*** const pppiBoard, const int iBoardLength
+ * @param int*** const pppiBoard
+ * @param const int iBoardLength
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -126,7 +127,8 @@ void changeAlgorithmMode(AlgorithmMode_t* const peAlgoMode)
 /**
  * @fn void changeFileName(char acOldFileName[], const char acNewFileName[]) 
  * @brief copies the new file name into the old file name
- * @param char acOldFileName[], const char acNewFileName[]
+ * @param char acOldFileName[]
+ * @param const char acNewFileName[]
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

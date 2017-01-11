@@ -33,7 +33,9 @@ void printUserInterface(const AppData_t* const psAppData)
 /**
  * @fn void printChessBoard(const int** const ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
  * @brief prepares and prints the chess board
- * @param const int** const ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions
+ * @param const int** const ppiChessBoard
+ * @param const int iChessBoardLength
+ * @param const int iAmountOfSolutions
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

@@ -12,7 +12,10 @@
 /**
  * @fn void convertChessBoardToString(char acBoard[], const int** const ppiBoard, const int iBoardLength, const int iSolutionNumber) 
  * @brief convertes the chess board from int to a string representation
- * @param char acBoard[], const int** const ppiBoard, const int iBoardLength, const int iSolutionNumber
+ * @param char acBoard[]
+ * @param const int** const ppiBoard
+ * @param const int iBoardLength
+ * @param const int iSolutionNumber
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -73,7 +76,8 @@ void convertChessBoardToString(char acBoard[], const int** const ppiBoard, const
 /**
  * @fn void convertAlgorithmModeToString(char acBuffer[], const AlgorithmMode_t eAlgoMode)
  * @brief converts the alogrithm mode enum to a string representation
- * @param char acBuffer[], const AlgorithmMode_t eAlgoMode
+ * @param char acBuffer[]
+ * @param const AlgorithmMode_t eAlgoMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -91,9 +95,10 @@ void convertAlgorithmModeToString(char acBuffer[], const AlgorithmMode_t eAlgoMo
 }
 
 /**
- * @fn void convertSaveModeToString(char acBuffer[], const FileSaveActive_t saveMode)
+ * @fn void convertSaveModeToString(char acBuffer[], const FileSaveMode_t eSaveMode)
  * @brief converts the file save active enum to a string representation
- * @param char acBuffer[], const fileSaveActive saveMode
+ * @param char acBuffer[]
+ * @param const FileSaveMode_t eSaveMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
