@@ -10,14 +10,14 @@
 #include "../common_includes/DataManipulator.h"
 
  /**
- * @fn void generateChessBoard(int*** pppiBoard, const int iBoardLength)
+ * @fn void generateChessBoard(int*** const pppiBoard, const int iBoardLength)
  * @brief generates a chessboard for the given length
- * @param int*** pppiBoard, const int iBoardLength
+ * @param int*** const pppiBoard, const int iBoardLength
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void generateChessBoard(int*** pppiBoard, const int iBoardLength)
+void generateChessBoard(int*** const pppiBoard, const int iBoardLength)
 {
 	*pppiBoard = (int**)calloc(iBoardLength, sizeof(int*));
 	for (int i = 0; i < iBoardLength; i++) 
@@ -27,29 +27,29 @@ void generateChessBoard(int*** pppiBoard, const int iBoardLength)
 }
 
 /**
- * @fn void freeChessBoardMemory(int** ppiBoard)
+ * @fn void freeChessBoardMemory(int** const ppiBoard)
  * @brief frees the memory allocated for the chessboard
- * @param int** ppiBoard
+ * @param int** const ppiBoard
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void freeChessBoardMemory(int** ppiBoard)
+void freeChessBoardMemory(int** const ppiBoard)
 {
 	free(ppiBoard);
 }
 
 /**
- * @fn void incrementBoardLength(int* piBoardLength)
+ * @fn void incrementBoardLength(int* const piBoardLength)
  * @brief increases the length of the chess board
- * @param int* piBoardLength
+ * @param int* const piBoardLength
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  * 
  * If the board reached the length of 12 it will be reset to 4.
  */
-void incrementBoardLength(int* piBoardLength)
+void incrementBoardLength(int* const piBoardLength)
 { 
 	if (*piBoardLength == 12) 
 	{
@@ -62,16 +62,16 @@ void incrementBoardLength(int* piBoardLength)
 }
 
 /**
-* @fn void decrementBoardLength(int* piBoardLength)
+* @fn void decrementBoardLength(int* const piBoardLength)
 * @brief decreases the length of the chess board
-* @param int* piBoardLength
+* @param int* const piBoardLength
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 *
 * If the board reached the length of 4 it will be reset to 12.
 */
-void decrementBoardLength(int* piBoardLength) 
+void decrementBoardLength(int* const piBoardLength)
 {
 	if (*piBoardLength == 4)
 	{
@@ -84,42 +84,42 @@ void decrementBoardLength(int* piBoardLength)
 }
 
 /**
- * @fn void changeFileSaveMode(FileSaveMode_t* eSaveMode)
+ * @fn void changeFileSaveMode(FileSaveMode_t* const peSaveMode)
  * @brief toogles between the existing file save modes
- * @param FileSaveMode_t* eSaveMode
+ * @param FileSaveMode_t* const peSaveMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void changeFileSaveMode(FileSaveMode_t* eSaveMode)
+void changeFileSaveMode(FileSaveMode_t* const peSaveMode)
 {
-	if (*eSaveMode == ON)
+	if (*peSaveMode == ON)
 	{
-		*eSaveMode = OFF;
+		*peSaveMode = OFF;
 	}
 	else 
 	{
-		*eSaveMode = ON;
+		*peSaveMode = ON;
 	}
 }
 
 /**
- * @fn void changeAlgorithmMode(AlgorithmMode_t* eAlgoMode)
+ * @fn void changeAlgorithmMode(AlgorithmMode_t* const peAlgoMode)
  * @brief toogles between the existing algorithm modes
- * @param AlgorithmMode_t* eAlgoMode
+ * @param AlgorithmMode_t* const peAlgoMode
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void changeAlgorithmMode(AlgorithmMode_t* eAlgoMode) 
+void changeAlgorithmMode(AlgorithmMode_t* const peAlgoMode)
 {
-	if (*eAlgoMode == MODUS_ONE_BY_ONE)
+	if (*peAlgoMode == MODUS_ONE_BY_ONE)
 	{
-		*eAlgoMode = MODUS_CONTINUOUS;
+		*peAlgoMode = MODUS_CONTINUOUS;
 	}
 	else
 	{
-		*eAlgoMode = MODUS_ONE_BY_ONE;
+		*peAlgoMode = MODUS_ONE_BY_ONE;
 	}
 }
 

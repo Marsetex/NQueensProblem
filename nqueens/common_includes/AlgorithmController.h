@@ -7,4 +7,4 @@
 
 #pragma warning(disable:4996)
 
-void runAlgorithm(AppData_t* psAppData);
+void runAlgorithm(AppData_t* const psAppData);

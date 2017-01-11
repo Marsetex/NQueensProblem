@@ -7,10 +7,10 @@
 
 #pragma warning(disable:4996)
 
-void generateChessBoard(int*** pppiBoard, const int iBoardLength);
-void freeChessBoardMemory(int** ppiBoard);
-void incrementBoardLength(int* piBoardLength);
-void decrementBoardLength(int* piBoardLength);
-void changeFileSaveMode(FileSaveMode_t* eSaveMode);
-void changeAlgorithmMode(AlgorithmMode_t* eAlgoMode);
+void generateChessBoard(int*** const pppiBoard, const int iBoardLength);
+void freeChessBoardMemory(int** const ppiBoard);
+void incrementBoardLength(int* const piBoardLength);
+void decrementBoardLength(int* const piBoardLength);
+void changeFileSaveMode(FileSaveMode_t* const peSaveMode);
+void changeAlgorithmMode(AlgorithmMode_t* const peAlgoMode);
 void changeFileName(char acOldFileName[], const char acNewFileName[]);

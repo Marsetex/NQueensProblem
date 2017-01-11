@@ -4,7 +4,8 @@
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
+
 #pragma warning(disable:4996)
 
-void waitForUserInputInOneByOne(bool* bAlgorithmRunning, bool* bExitPressed);
-void waitForUserInputInContinuous(bool* bAlgorithmRunning, bool* bExitPressed);
+void waitForUserInputInOneByOne(bool* const pbAlgorithmRunning, bool* const pbExitPressed);
+void waitForUserInputInContinuous(bool* const pbAlgorithmRunning, bool* const pbExitPressed);

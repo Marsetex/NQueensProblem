@@ -19,7 +19,7 @@ typedef enum algorithmMode AlgorithmMode_t;
 typedef enum fileSaveMode FileSaveMode_t;
 typedef struct applicationData AppData_t;
 
-enum algorithmModus
+enum algorithmMode
 {
 	ONE_BY_ONE,
 	CONTINIOUS

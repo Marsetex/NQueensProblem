@@ -5,4 +5,4 @@
  * @date 27.12.2016
  */
 
-void waitForUserInputInMenu(AppData_t* psAppData);
+void waitForUserInputInMenu(AppData_t* const psAppData);

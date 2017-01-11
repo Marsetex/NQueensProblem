@@ -31,7 +31,7 @@ void setTitleOfConsoleWindow(const char acTitle[])
 void setSizeOfConsoleWindow(void)
 {
 	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
-	SMALL_RECT windowSize = { 0, 0, 80, 25 };
+	SMALL_RECT windowSize = { 0, 0, 80, 26 };
 
 	SetConsoleWindowInfo(wHnd, 1, &windowSize);
 }

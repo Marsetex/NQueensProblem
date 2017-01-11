@@ -5,4 +5,4 @@
  * @date 27.12.2016
  */
 
-void saveSolutionToFile(AppData_t* appData, bool* bFirstTryToWrite);
+void saveSolutionToFile(AppData_t* const appData, bool* const pbFirstTryToWrite);

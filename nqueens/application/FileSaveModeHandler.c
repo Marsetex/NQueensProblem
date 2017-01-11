@@ -11,20 +11,20 @@
 #include "../common_includes/StringConverter.h"
 
 /**
-* @fn void saveSolutionToFile(AppData_t* appData, bool* bFirstTryToWrite)
+* @fn void saveSolutionToFile(AppData_t* const psAppData, bool* const pbFirstTryToWrite)
 * @brief saves the solution to file; also clears the file if it is the first append
-* @param AppData_t* appData, bool* bFirstTryToWrite
+* @param AppData_t* const psAppData, bool* const pbFirstTryToWrite
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void saveSolutionToFile(AppData_t* psAppData, bool* bFirstTryToWrite)
+void saveSolutionToFile(AppData_t* const psAppData, bool* const pbFirstTryToWrite)
 {
 	char acBoard[1350] = { "" };
 
-	if (*bFirstTryToWrite == true)
+	if (*pbFirstTryToWrite == true)
 	{
-		*bFirstTryToWrite = false;
+		*pbFirstTryToWrite = false;
 		clearContentOfFile(psAppData->acFilename, psAppData->acErrorDescription);
 	}
 

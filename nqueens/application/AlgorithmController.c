@@ -16,9 +16,9 @@
 #include "../common_includes/FileSaveModeHandler.h"
 
 /**
- * @fn void runAlgorithm(AppData_t* psAppData)
+ * @fn void runAlgorithm(AppData_t* const psAppData)
  * @brief correct handling of the tasks after a solution was found
- * @param AppData_t* psAppData
+ * @param AppData_t* const psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -26,7 +26,7 @@
  * Appends solution to file, handles one-by-one and continious 
  * mode, refreshes the user interface
  */
-void runAlgorithm(AppData_t* psAppData)
+void runAlgorithm(AppData_t* const psAppData)
 {
 	bool bAlgorithmRunning = true;
 	bool bFirstTryToWrite = true;

@@ -13,31 +13,31 @@
 #include "../common_includes/UserInputAlgorithm.h"
 
 /**
-* @fn void handleOneByOneMode(AppData_t* psAppData, bool* bAlgorithmRunning, bool* bExitPressed)
+* @fn void handleOneByOneMode(AppData_t* const psAppData, bool* const pbAlgorithmRunning, bool* const pbExitPressed)
 * @brief waits for user input in ony-by-one-mode and handles it
-* @param AppData_t* psAppData, bool* bAlgorithmRunning, bool* bExitPressed
+* @param AppData_t* const psAppData, bool* const pbAlgorithmRunning, bool* const pbExitPressed
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void handleOneByOneMode(AppData_t* psAppData, bool* bAlgorithmRunning, bool* bExitPressed)
+void handleOneByOneMode(AppData_t* const psAppData, bool* const pbAlgorithmRunning, bool* const pbExitPressed)
 {
 	printChessBoard(psAppData->ppiChessBoard, psAppData->iChessBoardLength, psAppData->iAmountOfSolutions);
 	strncpy(psAppData->acProgramStatus, "Any key to advance...", 23);
 	printStatusBar(psAppData);
 
-	waitForUserInputInOneByOne(bAlgorithmRunning, bExitPressed);
+	waitForUserInputInOneByOne(pbAlgorithmRunning, pbExitPressed);
 }
 
 /**
-* @fn void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed)
+* @fn void handleContinuousMode(bool* const pbAlgorithmRunning, bool* const pbExitPressed)
 * @brief waits for user input in continuous-mode and handles it
-* @param bool* bAlgorithmRunning, bool* bExitPressed
+* @param bool* const pbAlgorithmRunning, bool* const pbExitPressed
 * @return void
 * @author Marcel Gruessinger
 * @date 27.12.2016
 */
-void handleContinuousMode(bool* bAlgorithmRunning, bool* bExitPressed)
+void handleContinuousMode(bool* const pbAlgorithmRunning, bool* const pbExitPressed)
 {
-	waitForUserInputInContinuous(bAlgorithmRunning, bExitPressed);
+	waitForUserInputInContinuous(pbAlgorithmRunning, pbExitPressed);
 }

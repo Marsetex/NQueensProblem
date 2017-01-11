@@ -5,5 +5,5 @@
  * @date 27.12.2016
  */
 
-void sPressedInAlgorithmMode(bool* bAlgorithmRunning);
-void ePressedInAlgorithmMode(bool* bAlgorithmRunning, bool* bExitPressed);
+void sPressedInAlgorithmMode(bool* const pbAlgorithmRunning);
+void ePressedInAlgorithmMode(bool* const pbAlgorithmRunning, bool* const pbExitPressed);

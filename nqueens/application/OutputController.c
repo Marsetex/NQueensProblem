@@ -11,34 +11,34 @@
 #include "../common_includes/StringConverter.h"
 
 /**
- * @fn void printUserInterface(AppData_t* appData)
+ * @fn void printUserInterface(const AppData_t* const psAppData)
  * @brief prepares and prints the whole user interface
- * @param AppData_t* appData
+ * @param const AppData_t* const psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printUserInterface(const AppData_t* appData)
+void printUserInterface(const AppData_t* const psAppData)
 {
 	char acBoard[1350] = { "" };
 
-	convertChessBoardToString(acBoard, appData->ppiChessBoard, appData->iChessBoardLength, appData->iAmountOfSolutions);
+	convertChessBoardToString(acBoard, psAppData->ppiChessBoard, psAppData->iChessBoardLength, psAppData->iAmountOfSolutions);
 
 	_clrscr();
 	printMenu();
-	printBoard(acBoard, appData->iChessBoardLength);
-	printStatusBar(appData);
+	printBoard(acBoard, psAppData->iChessBoardLength);
+	printStatusBar(psAppData);
 }
 
 /**
- * @fn void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
+ * @fn void printChessBoard(const int** const ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
  * @brief prepares and prints the chess board
- * @param const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions
+ * @param const int** const ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
  */
-void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
+void printChessBoard(const int** const ppiChessBoard, const int iChessBoardLength, const int iAmountOfSolutions)
 {
 	char acBoard[1350] = { "" };
 
@@ -50,7 +50,7 @@ void printChessBoard(const int** ppiChessBoard, const int iChessBoardLength, con
 /**
  * @fn void printStatusBar(const AppData_t* const psAppData)
  * @brief prepares and prints the status bar
- * @param const AppData_t* psAppData
+ * @param const AppData_t* const psAppData
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016

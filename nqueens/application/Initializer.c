@@ -45,6 +45,7 @@ void initApplicationData(AppData_t* const psAppData)
 	psAppData->fRuntime = DEFAULT_RUNTIME;
 	strncpy(psAppData->acProgramStatus, "Pending...", 23);
 	strncpy(psAppData->acErrorDescription, "Error: -", 75);
+	psAppData->bExitKeyPressed = false;
 }
 
 /**

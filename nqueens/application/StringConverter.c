@@ -10,9 +10,9 @@
 #include "../common_includes/StringConverter.h"
 
 /**
- * @fn void convertChessBoardToString(char acBoard[], const int** ppiBoard, const int iBoardLength, const int iSolutionNumber) 
+ * @fn void convertChessBoardToString(char acBoard[], const int** const ppiBoard, const int iBoardLength, const int iSolutionNumber) 
  * @brief convertes the chess board from int to a string representation
- * @param char acBoard[], const int** ppiBoard, const int iBoardLength, const int iSolutionNumber
+ * @param char acBoard[], const int** const ppiBoard, const int iBoardLength, const int iSolutionNumber
  * @return void
  * @author Marcel Gruessinger
  * @date 27.12.2016
@@ -27,7 +27,7 @@
  * |   |   |
  * ---------
  */
-void convertChessBoardToString(char acBoard[], const int** ppiBoard, const int iBoardLength, const int iSolutionNumber) 
+void convertChessBoardToString(char acBoard[], const int** const ppiBoard, const int iBoardLength, const int iSolutionNumber)
 {
 	char acBuffer[51];
 	char acHorizontalLine[51] = { "-" };
