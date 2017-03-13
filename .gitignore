@@ -5,11 +5,11 @@
 /nqueens/Debug
 /nqueens/application/Debug
 /nqueens/dll/Debug
-/nqueens/.vs/nqueens/v14
-*.opendb
-
+/nqueens/dll/Release
+/nqueens/Release
 /nqueens/resources
 /nqueens/doxygen/html
 /nqueens/application/Release
-/nqueens/dll/Release
-/nqueens/Release
+/nqueens/.vs/nqueens/v15
+*.opendb
+/nqueens/.vs/nqueens/v14
